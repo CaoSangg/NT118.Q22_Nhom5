@@ -1,5 +1,5 @@
 users/
-└── [userId] (Document ID - Auto)
+└── [userId] 
     ├── userId: String
     ├── username: String
     ├── email: String
@@ -12,7 +12,7 @@ users/
     └── createdAt: Timestamp
 
 stories/
-└── [storyId] (Document ID - Auto)
+└── [storyId] 
     ├── storyId: String
     ├── title: String
     ├── title_lowercase: String 
@@ -25,3 +25,28 @@ stories/
     ├── category: Array [String]
     ├── keywords: Array [String] 
     └── updatedAt: Timestamp
+    └── chapters/ (Sub-collection)
+        └── [chapterId] 
+            ├── chapterId: String
+            ├── chapterNumber: Number 
+            ├── title: String
+            ├── content: String
+            └── createdAt: Timestamp
+
+comments/
+└── [commentId] 
+    ├── commentId: String
+    ├── storyId: String 
+    ├── userId: String 
+    ├── content: String
+    ├── createdAt: Timestamp
+    ├── userName: String 
+    └── userAvatar: String 
+
+bookmarks/
+└── [bookmarkId] 
+    ├── userId: String
+    ├── storyId: String
+    ├── lastChapterId: String 
+    ├── isFavorite: Boolean 
+    └── updatedAt: Timestamp 
