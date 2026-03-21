@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:background="@android:drawable/screen_background_light_transparent" />
+
+    <TextView
+        android:id="@+id/tvGuestStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chào bạn, Khách!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textColor="#212121"/>
+
+    <Button
+        android:id="@+id/btnGoToRegister"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:text="ĐĂNG NHẬP / ĐĂNG KÝ"
+        android:backgroundTint="#C2185B"
+        android:textColor="@color/white"
+        app:cornerRadius="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập để lưu truyện yêu thích và đồng bộ dữ liệu"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#757575"
+        android:gravity="center"/>
+
+</LinearLayout>

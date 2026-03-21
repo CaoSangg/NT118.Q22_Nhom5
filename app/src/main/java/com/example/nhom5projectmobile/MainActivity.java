@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
                 return true;
             } else if (itemId == R.id.nav_profile) {
-                replaceFragment(new HomeFragment());
+                replaceFragment(new ProfileFragment());
                 return true;
             }
 
