@@ -22,6 +22,8 @@ stories/
     ├── status: String
     ├── viewCount: Number 
     ├── dailyViews: Number 
+    ├── monthlyViews: Number 
+    ├── yearlyViews: Number  
     ├── category: Array [String]
     ├── keywords: Array [String] 
     └── updatedAt: Timestamp
@@ -32,6 +34,7 @@ stories/
             ├── title: String
             ├── content: String
             └── createdAt: Timestamp
+            └── orderIndex: Number
 
 comments/
 └── [commentId] 
@@ -50,3 +53,6 @@ bookmarks/
     ├── lastChapterId: String 
     ├── isFavorite: Boolean 
     └── updatedAt: Timestamp 
+    ├── lastChapterNumber: Number
+    ├── readingPercent: Number    
+    └── isDownloaded: Boolean

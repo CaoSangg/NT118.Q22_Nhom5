@@ -50,6 +50,7 @@
                     app:tint="#999999" />
 
                 <EditText
+                    android:id="@+id/etSearchHome"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"

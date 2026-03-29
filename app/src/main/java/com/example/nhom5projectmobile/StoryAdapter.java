@@ -26,9 +26,12 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     public void onBindViewHolder(@NonNull StoryViewHolder holder, int position) {
         Story story = storyList.get(position);
         holder.tvTitle.setText(story.getTitle());
-        holder.tvChapter.setText(story.getChapter());
-        holder.imgCover.setImageResource(story.getImageResource());
-        // Bạn có thể set thêm views nếu muốn
+        holder.tvChapter.setText(story.getLatestChapter());
+
+        com.bumptech.glide.Glide.with(holder.itemView.getContext())
+                .load(story.getCoverImage())
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(holder.imgCover);
     }
 
     @Override
