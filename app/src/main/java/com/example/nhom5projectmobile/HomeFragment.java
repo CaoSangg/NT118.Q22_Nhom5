@@ -2,94 +2,72 @@ package com.example.nhom5projectmobile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private StoryAdapter adapter;
+    private List<Story> storyList;
+    private FirebaseFirestore db;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Kết nối file Java này với file fragment_home.xml
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // --- PHẦN XỬ LÝ MENU XỔ XUỐNG ---
-        // 1. Ánh xạ nút menu (id này phải trùng với id trong file XML tôi vừa sửa cho bạn)
-        ImageView btnMenuMore = view.findViewById(R.id.btnMenuMore);
-
-        // 2. Thiết lập sự kiện bấm
-        btnMenuMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopupMenu(v);
-            }
-        });
-        // -------------------------------
-
-        // Ánh xạ RecyclerView từ XML
-        RecyclerView recyclerView = view.findViewById(R.id.rvHomeStories);
-
-        // 1. Tạo danh sách dữ liệu giả để hiển thị
-        List<Story> list = new ArrayList<>();
-        list.add(new Story("Võ Luyện Đỉnh Phong", "Chương 4856", "238", R.drawable.ic_launcher_background));
-        list.add(new Story("Đường Môn Máu", "Chương 153", "364", R.drawable.ic_launcher_background));
-        list.add(new Story("Kingdom", "Chương 860", "340", R.drawable.ic_launcher_background));
-        list.add(new Story("Thanh Gươm Diệt Quỷ", "Chương 205", "308", R.drawable.ic_launcher_background));
-        list.add(new Story("The Fragrant Flower", "Chương 180", "285", R.drawable.ic_launcher_background));
-        list.add(new Story("Bá Vương Sủng Ái", "Chương 183", "394", R.drawable.ic_launcher_background));
-
-        // 2. Thiết lập Adapter để đổ dữ liệu vào ô truyện
-        StoryAdapter adapter = new StoryAdapter(list);
-
-        // 3. Cấu hình hiển thị 3 cột (Grid)
+        db = FirebaseFirestore.getInstance();
+        recyclerView = view.findViewById(R.id.rvHomeStories);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+
+        storyList = new ArrayList<>();
+        adapter = new StoryAdapter(storyList);
         recyclerView.setAdapter(adapter);
+
+        loadStoriesFromFirestore();
 
         return view;
     }
 
-    // Hàm hiển thị PopupMenu
-    private void showPopupMenu(View view) {
-        // Khởi tạo PopupMenu
-        PopupMenu popupMenu = new PopupMenu(getContext(), view);
+    private void loadStoriesFromFirestore() {
+        // Sắp xếp theo monthlyViews (Top tháng) như trong database_guide.md
+        db.collection("stories")
+                .orderBy("monthlyViews", Query.Direction.DESCENDING)
+                .limit(15)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    storyList.clear();
+                    for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()) {
+                        // Map trực tiếp từ Document sang Object Story
+                        String title = doc.getString("title");
+                        String author = doc.getString("author");
+                        String coverImage = doc.getString("coverImage");
+                        long views = doc.getLong("viewCount") != null ? doc.getLong("viewCount") : 0;
 
-        // Nạp file menu của bạn vào (Hãy kiểm tra tên file menu của bạn là gì, ví dụ: R.menu.main_menu)
-        popupMenu.getMenuInflater().inflate(R.menu.bottom_nav_menu, popupMenu.getMenu());
+                        // Lấy chương mới nhất (giả sử bạn lưu field latestChapterName ở root để đỡ query sub-collection)
+                        String chapter = doc.contains("latestChapter") ? "Chương " + doc.get("latestChapter") : "Đang cập nhật";
 
-        // Xử lý sự kiện click vào từng item trong menu
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.nav_home) {
-                    Toast.makeText(getContext(), "Trang chủ", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (id == R.id.nav_search) {
-                    Toast.makeText(getContext(), "Tìm kiếm", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (id == R.id.nav_library) {
-                    Toast.makeText(getContext(), "Thư viện", Toast.LENGTH_SHORT).show();
-                    return true;
-                } else if (id == R.id.nav_profile) {
-                    Toast.makeText(getContext(), "Profile", Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        popupMenu.show();
+                        Story story = new Story(doc.getId(), title, author, coverImage, views, chapter);
+                        storyList.add(story);
+                    }
+                    adapter.notifyDataSetChanged();
+                })
+                .addOnFailureListener(e -> {
+                    if (getContext() != null) {
+                        Toast.makeText(getContext(), "Lỗi tải truyện: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

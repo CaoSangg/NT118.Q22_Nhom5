@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Đóng màn hình" />
+            app:tint="#C2185B" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -57,9 +57,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:drawableStart="@android:drawable/ic_dialog_email"
-                android:drawablePadding="12dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"/>
+                android:drawablePadding="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -78,9 +76,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:drawableStart="@android:drawable/ic_lock_idle_lock"
-                android:drawablePadding="12dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"/>
+                android:drawablePadding="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
