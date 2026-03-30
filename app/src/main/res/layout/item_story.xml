@@ -27,6 +27,7 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
+                android:id="@+id/tvTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#CC000000"
@@ -51,6 +52,7 @@
                 tools:ignore="Contrast" />
 
             <TextView
+                android:id="@+id/tvViews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"

@@ -1,36 +1,41 @@
 package com.example.nhom5projectmobile;
-
-import java.util.List;
-
 public class Story {
-    private String storyId;
+    private String id;
     private String title;
     private String author;
     private String coverImage;
-    private String description;
-    private String status;
-    private long viewCount;
-    private long monthlyViews; // Dùng để sắp xếp Top tháng
-    private List<String> category;
-    private String latestChapter; // Hiển thị ở danh sách ngoài
+    private long views;
+    private String chapter;
 
-    // Constructor rỗng cho Firebase
-    public Story() {}
+    // Thêm biến mới để lưu thời gian (Ví dụ: "3 ngày trước")
+    private String timeAgo;
 
-    public Story(String storyId, String title, String author, String coverImage, long viewCount, String latestChapter) {
-        this.storyId = storyId;
+    // Constructor đã được cập nhật để nhận đủ 7 tham số
+    public Story(String id, String title, String author, String coverImage, long views, String chapter, String timeAgo) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.coverImage = coverImage;
-        this.viewCount = viewCount;
-        this.latestChapter = latestChapter;
+        this.views = views;
+        this.chapter = chapter;
+        this.timeAgo = timeAgo;
     }
 
-    // Getters
-    public String getStoryId() { return storyId; }
+    // Các hàm Getter để lấy dữ liệu ra
+    public String getId() { return id; }
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
     public String getCoverImage() { return coverImage; }
-    public long getViewCount() { return viewCount; }
-    public String getLatestChapter() { return latestChapter; }
+    public long getViews() { return views; }
+    public String getChapter() { return chapter; }
+    public String getTimeAgo() { return timeAgo; }
+
+    // Các hàm Setter (nếu sau này cần dùng để sửa dữ liệu)
+    public void setId(String id) { this.id = id; }
+    public void setTitle(String title) { this.title = title; }
+    public void setAuthor(String author) { this.author = author; }
+    public void setCoverImage(String coverImage) { this.coverImage = coverImage; }
+    public void setViews(long views) { this.views = views; }
+    public void setChapter(String chapter) { this.chapter = chapter; }
+    public void setTimeAgo(String timeAgo) { this.timeAgo = timeAgo; }
 }
