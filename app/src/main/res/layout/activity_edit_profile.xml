@@ -12,6 +12,15 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Quay lại" />
+
         <TextView
             android:id="@+id/tvEditTitle"
             android:layout_width="wrap_content"

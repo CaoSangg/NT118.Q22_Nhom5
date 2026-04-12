@@ -126,7 +126,8 @@ public class HomeFragment extends Fragment {
         }
 
         // 2. Lấy tên Chapter động
-        String chapter = doc.contains("lastestChapterTitle") ? doc.getString("lastestChapterTitle") : "Đang cập nhật";
+        // Lấy status thay vì lastestChapterTitle
+        String chapter = doc.contains("status") ? doc.getString("status") : "Đang cập nhật";
 
         // 3. Lấy thời gian và tính toán "X ngày trước"
         String timeAgo = "Mới đây";
@@ -139,7 +140,7 @@ public class HomeFragment extends Fragment {
 
         // BẠN CẦN CẬP NHẬT LẠI MODEL STORY ĐỂ NHẬN THÊM BIẾN timeAgo NHƯ BÊN DƯỚI
         // (ID, Tên truyện, Tác giả, Ảnh bìa, Lượt xem, Tên Chap, Thời gian)
-        return new Story(doc.getId(), title, author, coverImage, views, chapter, timeAgo);
+        return new Story(doc.getId(), title, author, coverImage, views, chapter, timeAgo, null);
     }
 
     // Hàm thuật toán biến đổi Timestamp thành "X ngày trước"

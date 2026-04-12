@@ -56,6 +56,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // 4. Hủy bỏ
         btnCancel.setOnClickListener(v -> finish());
+        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
     }
 
     private void loadCurrentUserData() {

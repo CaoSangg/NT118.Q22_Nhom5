@@ -29,6 +29,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    packaging {
+        resources {
+            // Loại bỏ các file gây lỗi "2 files found with path..."
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/androidx.versionedparcelable_versionedparcelable.version"
+            excludes += "META-INF/androidx.core_core.version"
+        }
+    }
 }
 
 dependencies {
@@ -51,4 +59,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
