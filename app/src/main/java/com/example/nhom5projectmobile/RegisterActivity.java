@@ -92,5 +92,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         tvLoginLink.setOnClickListener(v -> finish());
+        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
     }
 }

@@ -14,7 +14,11 @@
         android:theme="@style/Theme.Nhom5ProjectMobile"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".PdfViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".StoryDetailActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".EditProfileActivity"

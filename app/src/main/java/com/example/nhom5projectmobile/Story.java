@@ -10,8 +10,12 @@ public class Story {
     // Thêm biến mới để lưu thời gian (Ví dụ: "3 ngày trước")
     private String timeAgo;
 
+    private String pdfUrl;
+
+    public Story() {}
+
     // Constructor đã được cập nhật để nhận đủ 7 tham số
-    public Story(String id, String title, String author, String coverImage, long views, String chapter, String timeAgo) {
+    public Story(String id, String title, String author, String coverImage, long views, String chapter, String timeAgo, String pdfUrl) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -19,6 +23,7 @@ public class Story {
         this.views = views;
         this.chapter = chapter;
         this.timeAgo = timeAgo;
+        this.pdfUrl = pdfUrl;
     }
 
     // Các hàm Getter để lấy dữ liệu ra
@@ -38,4 +43,7 @@ public class Story {
     public void setViews(long views) { this.views = views; }
     public void setChapter(String chapter) { this.chapter = chapter; }
     public void setTimeAgo(String timeAgo) { this.timeAgo = timeAgo; }
+
+    public String getPdfUrl() { return pdfUrl; }
+    public void setPdfUrl(String pdfUrl) { this.pdfUrl = pdfUrl; }
 }
