@@ -1,6 +1,8 @@
 package com.example.nhom5projectmobile;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-
+        TextView btnXepHang = findViewById(R.id.btn_xep_hang);
         // 1. Hiển thị màn hình Home mặc định khi vừa mở app
         if (savedInstanceState == null) {
             replaceFragment(new HomeFragment());
@@ -46,6 +48,30 @@ public class MainActivity extends AppCompatActivity {
             }
 
             return false;
+        });
+        btnXepHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Khởi tạo Fragment Xếp hạng
+                RankingFragment rankingFrag = new RankingFragment();
+
+                // Lệnh chuyển Fragment
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, rankingFrag) // Thay thế vùng chứa bằng RankingFragment
+                        .addToBackStack(null) // Nhấn nút Back trên điện thoại sẽ quay lại trang chủ
+                        .commit();
+            }
+        });
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .commit();
+        }
+        findViewById(R.id.btn_truyen_hot).setOnClickListener(v -> {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new HotStoriesFragment())
+                    .addToBackStack(null)
+                    .commit();
         });
     }
 
