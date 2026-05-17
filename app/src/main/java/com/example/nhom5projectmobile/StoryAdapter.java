@@ -1,5 +1,6 @@
 package com.example.nhom5projectmobile;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,11 @@ import java.util.List;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHolder> {
     private List<Story> storyList;
-    private OnStoryClickListener listener; // Khai báo listener
+    private OnStoryClickListener listener;
 
-    // Interface để HomeFragment triển khai
+    // 🔥 1. Thêm biến lưu chữ của thẻ (Mặc định là HOT)
+    private String tagText = "HOT";
+
     public interface OnStoryClickListener {
         void onStoryClick(Story story);
     }
@@ -21,6 +24,11 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     public StoryAdapter(List<Story> storyList, OnStoryClickListener listener) {
         this.storyList = storyList;
         this.listener = listener;
+    }
+
+    // 🔥 2. Thêm hàm này để HomeFragment có thể gọi và đổi chữ
+    public void setTagText(String tagText) {
+        this.tagText = tagText;
     }
 
     @NonNull
@@ -34,11 +42,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     public void onBindViewHolder(@NonNull StoryViewHolder holder, int position) {
         Story story = storyList.get(position);
 
-        // 1. Gán Tên truyện và Tên chương
         holder.tvTitle.setText(story.getTitle());
-        holder.tvChapter.setText(story.getChapter()); // Lỗi đã được sửa ở đây
+        holder.tvChapter.setText(story.getChapter());
 
-        // 2. Gán dữ liệu ĐỘNG cho Lượt xem và Thời gian
         if (holder.tvViews != null) {
             holder.tvViews.setText(story.getViews() + " lượt xem");
         }
@@ -46,13 +52,24 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
             holder.tvTime.setText(story.getTimeAgo());
         }
 
-        // 3. Load ảnh bìa
         com.bumptech.glide.Glide.with(holder.itemView.getContext())
                 .load(story.getCoverImage())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.imgCover);
 
-        // Bắt sự kiện click vào TOÀN BỘ item (bao gồm cả Title và Chapter)
+        // 🔥 3. Xét logic đổi chữ và màu cho Thẻ (HOT / NEW)
+        if (holder.tvTag != null) {
+            holder.tvTag.setText(tagText);
+
+            if (tagText.equals("NEW")) {
+                // Đổi thành màu xanh lá cây nếu là NEW
+                holder.tvTag.setBackgroundColor(Color.parseColor("#4CAF50"));
+            } else {
+                // Giữ màu hồng đỏ mặc định nếu là HOT
+                holder.tvTag.setBackgroundColor(Color.parseColor("#E91E63"));
+            }
+        }
+
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onStoryClick(story);
@@ -67,22 +84,23 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
 
     static class StoryViewHolder extends RecyclerView.ViewHolder {
         ImageView imgCover;
-        TextView tvTitle, tvChapter;
+        TextView tvTitle, tvChapter, tvViews, tvTime;
 
-        // Khai báo thêm 2 TextView cho Lượt xem và Thời gian
-        TextView tvViews, tvTime;
+        // 🔥 4. Khai báo thêm biến cho cái Thẻ
+        TextView tvTag;
 
         public StoryViewHolder(@NonNull View itemView) {
             super(itemView);
             imgCover = itemView.findViewById(R.id.imgCover);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvChapter = itemView.findViewById(R.id.tvChapter);
-
-            // Ánh xạ ID từ giao diện.
-            // BẠN LƯU Ý: Phải kiểm tra xem trong file item_story.xml của bạn
-            // đã đặt ID cho 2 chỗ này là "tvViews" và "tvTime" chưa nhé!
             tvViews = itemView.findViewById(R.id.tvViews);
             tvTime = itemView.findViewById(R.id.tvTime);
+
+            // 🔥 5. Ánh xạ Thẻ từ giao diện.
+            // LƯU Ý QUAN TRỌNG: Hãy mở file 'item_story.xml' của bạn ra, tìm cái TextView
+            // đang chứa chữ "HOT", và đặt android:id="@+id/tvTag" cho nó nhé!
+            tvTag = itemView.findViewById(R.id.tvTag);
         }
     }
 }

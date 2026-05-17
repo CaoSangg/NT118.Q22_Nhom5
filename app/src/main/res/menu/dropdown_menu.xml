@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_login"
+        android:title="Đăng nhập" />
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Hồ sơ" />
+    <item
+        android:id="@+id/nav_library"
+        android:title="Tủ truyện của tôi" />
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Cài đặt" />
+    <item
+        android:id="@+id/nav_manage_stories"
+        android:title="Quản lý truyện" />
+    <item
+        android:id="@+id/nav_manage_accounts"
+        android:title="Phân quyền tài khoản" />
+</menu>

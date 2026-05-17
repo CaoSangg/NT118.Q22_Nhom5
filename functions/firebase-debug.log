@@ -1,0 +1,1015 @@
+[debug] [2026-04-22T19:50:56.994Z] ----------------------------------------------------------------------
+[debug] [2026-04-22T19:50:56.997Z] Command:       D:\App\NodeJS\node-v24.15.0-win-x64\node.exe D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2026-04-22T19:50:56.998Z] CLI Version:   15.15.0
+[debug] [2026-04-22T19:50:56.998Z] Platform:      win32
+[debug] [2026-04-22T19:50:56.998Z] Node Version:  v24.15.0
+[debug] [2026-04-22T19:50:56.998Z] Time:          Thu Apr 23 2026 02:50:56 GMT+0700 (Indochina Time)
+[debug] [2026-04-22T19:50:56.998Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-22T19:50:58.192Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:50:58.192Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T19:50:58.193Z] [iam] checking project nhom5projectmobile for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-04-22T19:50:58.194Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:50:58.194Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:50:58.195Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T19:50:58.195Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:50:58.195Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T19:50:59.258Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T19:50:59.258Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T19:50:59.259Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:50:59.259Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:50:59.259Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-22T19:50:59.260Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-22T19:51:00.584Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-22T19:51:00.585Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'nhom5projectmobile'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-04-22T19:51:00.589Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:00.589Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:00.589Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T19:51:00.836Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T19:51:00.836Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-04-22T19:51:00.838Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:00.838Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:00.838Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig [none]
+[debug] [2026-04-22T19:51:01.823Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig 200
+[debug] [2026-04-22T19:51:01.824Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig {"projectId":"nhom5projectmobile","storageBucket":"nhom5projectmobile.firebasestorage.app"}
+[debug] [2026-04-22T19:51:01.825Z] Validating nodejs source
+[debug] [2026-04-22T19:51:02.942Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0",
+    "fs-extra": "^11.3.4",
+    "pdf2pic": "^3.2.0",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-04-22T19:51:02.943Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-04-22T19:51:02.944Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-22T19:51:02.964Z] Found firebase-functions binary at 'D:\ProjectMobile\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8118
+
+[debug] [2026-04-22T19:51:03.462Z] Got response from /__/functions.yaml {"endpoints":{"processChapterPdf":{"platform":"gcfv1","availableMemoryMb":2048,"timeoutSeconds":540,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"google.storage.object.finalize","eventFilters":{"resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"retry":false},"labels":{},"entryPoint":"processChapterPdf"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-04-22T19:51:07.495Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:07.495Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:07.495Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com [none]
+[debug] [2026-04-22T19:51:07.495Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:51:09.007Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com 200
+[debug] [2026-04-22T19:51:09.007Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com [omitted]
+[warn] !  extensions: missing required API firebaseextensions.googleapis.com. Enabling now... 
+[debug] [2026-04-22T19:51:09.008Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:09.008Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:09.008Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com:enable [none]
+[debug] [2026-04-22T19:51:09.008Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com:enable  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:51:10.478Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com:enable 200
+[debug] [2026-04-22T19:51:10.478Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/nhom5projectmobile/services/firebaseextensions.googleapis.com:enable [omitted]
+[debug] [2026-04-22T19:51:20.490Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:51:20.490Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T19:51:20.490Z] [iam] checking project nhom5projectmobile for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-04-22T19:51:20.490Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:20.490Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:20.490Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T19:51:20.490Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:51:20.490Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T19:51:21.523Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T19:51:21.523Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T19:51:21.523Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:21.524Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:21.524Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances pageSize=100&pageToken=
+[debug] [2026-04-22T19:51:27.160Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances 200
+[debug] [2026-04-22T19:51:27.161Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\ProjectMobile\functions (73.28 KB) for uploading 
+[debug] [2026-04-22T19:51:27.187Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:27.187Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:27.188Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions [none]
+[debug] [2026-04-22T19:51:27.956Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T19:51:27.956Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T19:51:27.956Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:27.956Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:27.956Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-04-22T19:51:29.479Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T19:51:29.479Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T19:51:29.482Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:29.482Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:29.482Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T19:51:30.565Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T19:51:30.565Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[debug] [2026-04-22T19:51:30.566Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:30.566Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:30.566Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo [none]
+[debug] [2026-04-22T19:51:31.864Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo 200
+[debug] [2026-04-22T19:51:31.864Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo {"name":"projects/nhom5projectmobile/billingInfo","projectId":"nhom5projectmobile","billingAccountName":"billingAccounts/019392-92E690-7EB147","billingEnabled":true}
+[debug] [2026-04-22T19:51:31.865Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:31.865Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:31.865Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-04-22T19:51:31.866Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2026-04-22T19:51:43.738Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-04-22T19:51:43.739Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/b2e654a1-9e16-452e-a37a-db33fed2da1b.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889300&Signature=LSZYMJBwkfKVYLb3TIsbbsoW2ceasogGaqyy6S%2FWfihWEpMN86Ht41YTnSrE%2B3dICrRqLVpZ6vV85oOohhO1XRbW17BBCPk71mzz7fm0ZvcSMO3VbPRVQ2LQgpf2PJYIKBouWfogx%2FbfaOAJ2u78UMxpzXdcbEwfH%2B7z%2BVP5PEC3Iujpyq5tQ6%2BhUYYpOrw9HqiUzJzWDy4pk9EUtLevd71vkJe0KW4vDoTOX1vLYSz3gADwlg1v%2Fdh3P1q%2FhDsvNrKt%2Bnvx%2FkjuWgmXn00axW0LmQ%2FulBdaOjhXO1Zl8I3gA07Nb%2BFQDaCVB0xalxlLKkldpaT9Q%2FLnDFs9Mw1uuA%3D%3D"}
+[debug] [2026-04-22T19:51:43.740Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/b2e654a1-9e16-452e-a37a-db33fed2da1b.zip GoogleAccessId=service-511412260491%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889300&Signature=LSZYMJBwkfKVYLb3TIsbbsoW2ceasogGaqyy6S%2FWfihWEpMN86Ht41YTnSrE%2B3dICrRqLVpZ6vV85oOohhO1XRbW17BBCPk71mzz7fm0ZvcSMO3VbPRVQ2LQgpf2PJYIKBouWfogx%2FbfaOAJ2u78UMxpzXdcbEwfH%2B7z%2BVP5PEC3Iujpyq5tQ6%2BhUYYpOrw9HqiUzJzWDy4pk9EUtLevd71vkJe0KW4vDoTOX1vLYSz3gADwlg1v%2Fdh3P1q%2FhDsvNrKt%2Bnvx%2FkjuWgmXn00axW0LmQ%2FulBdaOjhXO1Zl8I3gA07Nb%2BFQDaCVB0xalxlLKkldpaT9Q%2FLnDFs9Mw1uuA%3D%3D
+[debug] [2026-04-22T19:51:43.740Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/b2e654a1-9e16-452e-a37a-db33fed2da1b.zip [stream]
+[debug] [2026-04-22T19:51:44.947Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/b2e654a1-9e16-452e-a37a-db33fed2da1b.zip 200
+[debug] [2026-04-22T19:51:44.947Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/b2e654a1-9e16-452e-a37a-db33fed2da1b.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: creating Node.js 24 (1st Gen) function processChapterPdf(us-central1)... 
+[debug] [2026-04-22T19:51:44.952Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:44.953Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:44.953Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions [none]
+[debug] [2026-04-22T19:51:44.953Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions {"name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/b2e654a1-9e16-452e-a37a-db33fed2da1b.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889300&Signature=LSZYMJBwkfKVYLb3TIsbbsoW2ceasogGaqyy6S%2FWfihWEpMN86Ht41YTnSrE%2B3dICrRqLVpZ6vV85oOohhO1XRbW17BBCPk71mzz7fm0ZvcSMO3VbPRVQ2LQgpf2PJYIKBouWfogx%2FbfaOAJ2u78UMxpzXdcbEwfH%2B7z%2BVP5PEC3Iujpyq5tQ6%2BhUYYpOrw9HqiUzJzWDy4pk9EUtLevd71vkJe0KW4vDoTOX1vLYSz3gADwlg1v%2Fdh3P1q%2FhDsvNrKt%2Bnvx%2FkjuWgmXn00axW0LmQ%2FulBdaOjhXO1Zl8I3gA07Nb%2BFQDaCVB0xalxlLKkldpaT9Q%2FLnDFs9Mw1uuA%3D%3D","entryPoint":"processChapterPdf","runtime":"nodejs24","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"181b325eef93469e8851a4716a389d9b3b46a546"},"eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"serviceAccountEmail":null,"availableMemoryMb":2048,"timeout":"540s","vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2026-04-22T19:51:45.577Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions 400
+[debug] [2026-04-22T19:51:45.577Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions {"error":{"code":400,"message":"Failed to create 1st Gen function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf: runtime: Runtime validation errors: [error_code: \t INVALID_RUNTIME\nmessage: \"Runtime \\\"nodejs24\\\" is not supported on GCF Gen1\"\n]","status":"INVALID_ARGUMENT"}}
+[warn] !  functions: Runtime "nodejs24" is not supported on GCF Gen1 for function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf 
+[warn] !  functions: failed to create function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf 
+[error] Failed to create function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf
+[warn] !  functions: Deploys failed. Skipping deletes. 
+[debug] [2026-04-22T19:51:45.581Z] Total Function Deployment time: 630
+[debug] [2026-04-22T19:51:45.582Z] 1 Functions Deployed
+[debug] [2026-04-22T19:51:45.582Z] 1 Functions Errored
+[debug] [2026-04-22T19:51:45.582Z] 0 Function Deployments Aborted
+[debug] [2026-04-22T19:51:45.582Z] Average Function Deployment time: 628
+[info] 
+[info] Functions deploy had errors with the following functions:
+	processChapterPdf(us-central1)
+[debug] [2026-04-22T19:51:45.584Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:45.584Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:51:45.585Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-04-22T19:51:46.986Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts 404
+[debug] [2026-04-22T19:51:46.987Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2026-04-22T19:51:46.987Z] Failed to check artifact cleanup policy for region us-central1: Request to https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found.","status":404}
+[debug] [2026-04-22T19:51:46.988Z] Functions deploy failed.
+[debug] [2026-04-22T19:51:46.988Z] {
+  "endpoint": {
+    "id": "processChapterPdf",
+    "project": "nhom5projectmobile",
+    "region": "us-central1",
+    "entryPoint": "processChapterPdf",
+    "platform": "gcfv1",
+    "runtime": "nodejs24",
+    "eventTrigger": {
+      "eventType": "google.storage.object.finalize",
+      "retry": false,
+      "eventFilters": {
+        "resource": "projects/_/buckets/nhom5projectmobile.firebasestorage.app"
+      }
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": 2048,
+    "timeoutSeconds": 540,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "nhom5projectmobile",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "181b325eef93469e8851a4716a389d9b3b46a546"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 400,
+            "message": "Failed to create 1st Gen function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf: runtime: Runtime validation errors: [error_code: \t INVALID_RUNTIME\nmessage: \"Runtime \\\"nodejs24\\\" is not supported on GCF Gen1\"\n]",
+            "status": "INVALID_ARGUMENT"
+          }
+        },
+        "response": {
+          "statusCode": 400
+        }
+      },
+      "exit": 1,
+      "message": "Request to https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions had HTTP Error: 400, Failed to create 1st Gen function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf: runtime: Runtime validation errors: [error_code: \t INVALID_RUNTIME\nmessage: \"Runtime \\\"nodejs24\\\" is not supported on GCF Gen1\"\n]",
+      "status": 400
+    },
+    "status": 400,
+    "code": 400
+  }
+}
+[debug] [2026-04-22T19:51:46.990Z] Error: Failed to create function processChapterPdf in region us-central1
+    at D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:54:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Fabricator.createV1Function (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:207:32)
+    at async Fabricator.createEndpoint (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:150:13)
+    at async Fabricator.wrapOperation (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:138:13)
+    at async Promise.all (index 0)
+    at async Promise.allSettled (index 0)
+    at async Fabricator.applyPlan (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:77:45)
+    at async release (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\index.js:87:21)
+    at async chain (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\index.js:45:9)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2026-04-22T19:53:32.478Z] ----------------------------------------------------------------------
+[debug] [2026-04-22T19:53:32.481Z] Command:       D:\App\NodeJS\node-v24.15.0-win-x64\node.exe D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2026-04-22T19:53:32.481Z] CLI Version:   15.15.0
+[debug] [2026-04-22T19:53:32.481Z] Platform:      win32
+[debug] [2026-04-22T19:53:32.481Z] Node Version:  v24.15.0
+[debug] [2026-04-22T19:53:32.482Z] Time:          Thu Apr 23 2026 02:53:32 GMT+0700 (Indochina Time)
+[debug] [2026-04-22T19:53:32.482Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-22T19:53:33.596Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:53:33.598Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T19:53:33.598Z] [iam] checking project nhom5projectmobile for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-04-22T19:53:33.599Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:33.600Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:33.601Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T19:53:33.601Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:53:33.602Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T19:53:34.658Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T19:53:34.658Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T19:53:34.659Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:34.659Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:34.659Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-22T19:53:34.659Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-22T19:53:36.060Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-22T19:53:36.060Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'nhom5projectmobile'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-04-22T19:53:36.063Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:36.063Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:36.064Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T19:53:36.323Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T19:53:36.323Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-04-22T19:53:36.326Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:36.326Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:36.327Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig [none]
+[debug] [2026-04-22T19:53:37.389Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig 200
+[debug] [2026-04-22T19:53:37.389Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig {"projectId":"nhom5projectmobile","storageBucket":"nhom5projectmobile.firebasestorage.app"}
+[debug] [2026-04-22T19:53:37.393Z] Validating nodejs source
+[debug] [2026-04-22T19:53:38.242Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0",
+    "fs-extra": "^11.3.4",
+    "pdf2pic": "^3.2.0",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-04-22T19:53:38.242Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-04-22T19:53:38.243Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-22T19:53:38.259Z] Found firebase-functions binary at 'D:\ProjectMobile\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8287
+
+[debug] [2026-04-22T19:53:38.890Z] Got response from /__/functions.yaml {"endpoints":{"processChapterPdf":{"platform":"gcfv1","availableMemoryMb":2048,"timeoutSeconds":540,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"google.storage.object.finalize","eventFilters":{"resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"retry":false},"labels":{},"entryPoint":"processChapterPdf"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-04-22T19:53:42.927Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:53:42.927Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T19:53:42.927Z] [iam] checking project nhom5projectmobile for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-04-22T19:53:42.927Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:42.928Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:42.928Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T19:53:42.928Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:53:42.928Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T19:53:45.085Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T19:53:45.085Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T19:53:45.086Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:45.086Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:45.086Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances pageSize=100&pageToken=
+[debug] [2026-04-22T19:53:46.297Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances 200
+[debug] [2026-04-22T19:53:46.297Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\ProjectMobile\functions (73.28 KB) for uploading 
+[debug] [2026-04-22T19:53:46.330Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:46.330Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:46.331Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions [none]
+[debug] [2026-04-22T19:53:47.261Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T19:53:47.261Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T19:53:47.261Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:47.261Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:47.262Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-04-22T19:53:48.644Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T19:53:48.644Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T19:53:48.646Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:48.647Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:48.647Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T19:53:48.917Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T19:53:48.917Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[debug] [2026-04-22T19:53:48.919Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:48.919Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:48.919Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo [none]
+[debug] [2026-04-22T19:53:50.169Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo 200
+[debug] [2026-04-22T19:53:50.170Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo {"name":"projects/nhom5projectmobile/billingInfo","projectId":"nhom5projectmobile","billingAccountName":"billingAccounts/019392-92E690-7EB147","billingEnabled":true}
+[debug] [2026-04-22T19:53:50.171Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:50.171Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:50.171Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-04-22T19:53:50.171Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2026-04-22T19:53:51.043Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-04-22T19:53:51.043Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/7641febd-c5db-4205-90ce-81c744959c50.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889427&Signature=UpQKDQ7lE3aVwwqt8rF9rwdTpB16yXL2g0j7lpe38K%2BS3FOPJCsHmdeypKtEl%2F%2F7iZBaIWDsGVefvl3Maf03CzxdK%2FfxhaxpkcOUMNoNVrVoQAi%2Fr9EOdWv8g0OUGIS5BAe04MKe0G4pfKivsfAjBxSxelEjLbNzbX%2BvzFrdwpq4RhaB6LjP1DN8HSLhvBkVEyteSyCrPnnUD9N8TP3m1OJK%2FzJ%2Fk0HXBqo13heSd9J9kb50gVymRzA9Q%2BVLbKMY7d50IsO%2FtBoHalUUsmolqcdESoGOHEkFwbc%2FdUIBfJOUJozXgfV7o%2BxAy8g6VDdTJIw6qGezQ5wZZKqLFHDDLg%3D%3D"}
+[debug] [2026-04-22T19:53:51.044Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/7641febd-c5db-4205-90ce-81c744959c50.zip GoogleAccessId=service-511412260491%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889427&Signature=UpQKDQ7lE3aVwwqt8rF9rwdTpB16yXL2g0j7lpe38K%2BS3FOPJCsHmdeypKtEl%2F%2F7iZBaIWDsGVefvl3Maf03CzxdK%2FfxhaxpkcOUMNoNVrVoQAi%2Fr9EOdWv8g0OUGIS5BAe04MKe0G4pfKivsfAjBxSxelEjLbNzbX%2BvzFrdwpq4RhaB6LjP1DN8HSLhvBkVEyteSyCrPnnUD9N8TP3m1OJK%2FzJ%2Fk0HXBqo13heSd9J9kb50gVymRzA9Q%2BVLbKMY7d50IsO%2FtBoHalUUsmolqcdESoGOHEkFwbc%2FdUIBfJOUJozXgfV7o%2BxAy8g6VDdTJIw6qGezQ5wZZKqLFHDDLg%3D%3D
+[debug] [2026-04-22T19:53:51.045Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/7641febd-c5db-4205-90ce-81c744959c50.zip [stream]
+[debug] [2026-04-22T19:53:52.025Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/7641febd-c5db-4205-90ce-81c744959c50.zip 200
+[debug] [2026-04-22T19:53:52.025Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/7641febd-c5db-4205-90ce-81c744959c50.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: creating Node.js 24 (1st Gen) function processChapterPdf(us-central1)... 
+[debug] [2026-04-22T19:53:52.028Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:52.028Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:52.028Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions [none]
+[debug] [2026-04-22T19:53:52.028Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions {"name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/7641febd-c5db-4205-90ce-81c744959c50.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889427&Signature=UpQKDQ7lE3aVwwqt8rF9rwdTpB16yXL2g0j7lpe38K%2BS3FOPJCsHmdeypKtEl%2F%2F7iZBaIWDsGVefvl3Maf03CzxdK%2FfxhaxpkcOUMNoNVrVoQAi%2Fr9EOdWv8g0OUGIS5BAe04MKe0G4pfKivsfAjBxSxelEjLbNzbX%2BvzFrdwpq4RhaB6LjP1DN8HSLhvBkVEyteSyCrPnnUD9N8TP3m1OJK%2FzJ%2Fk0HXBqo13heSd9J9kb50gVymRzA9Q%2BVLbKMY7d50IsO%2FtBoHalUUsmolqcdESoGOHEkFwbc%2FdUIBfJOUJozXgfV7o%2BxAy8g6VDdTJIw6qGezQ5wZZKqLFHDDLg%3D%3D","entryPoint":"processChapterPdf","runtime":"nodejs24","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"181b325eef93469e8851a4716a389d9b3b46a546"},"eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"serviceAccountEmail":null,"availableMemoryMb":2048,"timeout":"540s","vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2026-04-22T19:53:52.680Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions 400
+[debug] [2026-04-22T19:53:52.680Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions {"error":{"code":400,"message":"Failed to create 1st Gen function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf: runtime: Runtime validation errors: [error_code: \t INVALID_RUNTIME\nmessage: \"Runtime \\\"nodejs24\\\" is not supported on GCF Gen1\"\n]","status":"INVALID_ARGUMENT"}}
+[warn] !  functions: Runtime "nodejs24" is not supported on GCF Gen1 for function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf 
+[warn] !  functions: failed to create function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf 
+[error] Failed to create function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf
+[warn] !  functions: Deploys failed. Skipping deletes. 
+[debug] [2026-04-22T19:53:52.682Z] Total Function Deployment time: 654
+[debug] [2026-04-22T19:53:52.682Z] 1 Functions Deployed
+[debug] [2026-04-22T19:53:52.683Z] 1 Functions Errored
+[debug] [2026-04-22T19:53:52.683Z] 0 Function Deployments Aborted
+[debug] [2026-04-22T19:53:52.683Z] Average Function Deployment time: 654
+[info] 
+[info] Functions deploy had errors with the following functions:
+	processChapterPdf(us-central1)
+[debug] [2026-04-22T19:53:52.684Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:52.685Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:53:52.685Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-04-22T19:53:53.985Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts 404
+[debug] [2026-04-22T19:53:53.985Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2026-04-22T19:53:53.985Z] Failed to check artifact cleanup policy for region us-central1: Request to https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found.","status":404}
+[debug] [2026-04-22T19:53:53.985Z] Functions deploy failed.
+[debug] [2026-04-22T19:53:53.985Z] {
+  "endpoint": {
+    "id": "processChapterPdf",
+    "project": "nhom5projectmobile",
+    "region": "us-central1",
+    "entryPoint": "processChapterPdf",
+    "platform": "gcfv1",
+    "runtime": "nodejs24",
+    "eventTrigger": {
+      "eventType": "google.storage.object.finalize",
+      "retry": false,
+      "eventFilters": {
+        "resource": "projects/_/buckets/nhom5projectmobile.firebasestorage.app"
+      }
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": 2048,
+    "timeoutSeconds": 540,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "nhom5projectmobile",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "181b325eef93469e8851a4716a389d9b3b46a546"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 400,
+            "message": "Failed to create 1st Gen function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf: runtime: Runtime validation errors: [error_code: \t INVALID_RUNTIME\nmessage: \"Runtime \\\"nodejs24\\\" is not supported on GCF Gen1\"\n]",
+            "status": "INVALID_ARGUMENT"
+          }
+        },
+        "response": {
+          "statusCode": 400
+        }
+      },
+      "exit": 1,
+      "message": "Request to https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions had HTTP Error: 400, Failed to create 1st Gen function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf: runtime: Runtime validation errors: [error_code: \t INVALID_RUNTIME\nmessage: \"Runtime \\\"nodejs24\\\" is not supported on GCF Gen1\"\n]",
+      "status": 400
+    },
+    "status": 400,
+    "code": 400
+  }
+}
+[debug] [2026-04-22T19:53:53.986Z] Error: Failed to create function processChapterPdf in region us-central1
+    at D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:54:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Fabricator.createV1Function (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:207:32)
+    at async Fabricator.createEndpoint (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:150:13)
+    at async Fabricator.wrapOperation (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:138:13)
+    at async Promise.all (index 0)
+    at async Promise.allSettled (index 0)
+    at async Fabricator.applyPlan (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:77:45)
+    at async release (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\index.js:87:21)
+    at async chain (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\index.js:45:9)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2026-04-22T19:56:40.434Z] ----------------------------------------------------------------------
+[debug] [2026-04-22T19:56:40.436Z] Command:       D:\App\NodeJS\node-v24.15.0-win-x64\node.exe D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2026-04-22T19:56:40.436Z] CLI Version:   15.15.0
+[debug] [2026-04-22T19:56:40.436Z] Platform:      win32
+[debug] [2026-04-22T19:56:40.437Z] Node Version:  v24.15.0
+[debug] [2026-04-22T19:56:40.437Z] Time:          Thu Apr 23 2026 02:56:40 GMT+0700 (Indochina Time)
+[debug] [2026-04-22T19:56:40.437Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-22T19:56:41.551Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:56:41.552Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T19:56:41.552Z] [iam] checking project nhom5projectmobile for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-04-22T19:56:41.553Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:41.553Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:41.553Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T19:56:41.553Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:56:41.554Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T19:56:42.593Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T19:56:42.593Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T19:56:42.593Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:42.593Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:42.593Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-22T19:56:42.593Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-22T19:56:44.058Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-22T19:56:44.058Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'nhom5projectmobile'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-04-22T19:56:44.060Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:44.060Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:44.060Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T19:56:44.325Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T19:56:44.325Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-04-22T19:56:44.327Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:44.327Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:44.327Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig [none]
+[debug] [2026-04-22T19:56:45.443Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig 200
+[debug] [2026-04-22T19:56:45.443Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig {"projectId":"nhom5projectmobile","storageBucket":"nhom5projectmobile.firebasestorage.app"}
+[debug] [2026-04-22T19:56:45.445Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[debug] [2026-04-22T19:56:46.199Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0",
+    "fs-extra": "^11.3.4",
+    "pdf2pic": "^3.2.0",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-04-22T19:56:46.199Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-04-22T19:56:46.200Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-22T19:56:46.216Z] Found firebase-functions binary at 'D:\ProjectMobile\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8252
+
+[debug] [2026-04-22T19:56:46.759Z] Got response from /__/functions.yaml {"endpoints":{"processChapterPdf":{"platform":"gcfv1","availableMemoryMb":2048,"timeoutSeconds":540,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"google.storage.object.finalize","eventFilters":{"resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"retry":false},"labels":{},"entryPoint":"processChapterPdf"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-04-22T19:56:50.797Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:56:50.797Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T19:56:50.797Z] [iam] checking project nhom5projectmobile for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-04-22T19:56:50.797Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:50.797Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:50.798Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T19:56:50.798Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T19:56:50.798Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T19:56:51.846Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T19:56:51.846Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T19:56:51.847Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:51.847Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:51.848Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances pageSize=100&pageToken=
+[debug] [2026-04-22T19:56:53.160Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances 200
+[debug] [2026-04-22T19:56:53.160Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\ProjectMobile\functions (73.28 KB) for uploading 
+[debug] [2026-04-22T19:56:53.199Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:53.199Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:53.200Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions [none]
+[debug] [2026-04-22T19:56:54.157Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T19:56:54.157Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T19:56:54.157Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:54.157Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:54.157Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-04-22T19:56:55.618Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T19:56:55.619Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T19:56:55.625Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:55.626Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:55.626Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T19:56:55.903Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T19:56:55.903Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[debug] [2026-04-22T19:56:55.908Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:55.908Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:55.908Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo [none]
+[debug] [2026-04-22T19:56:56.615Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo 200
+[debug] [2026-04-22T19:56:56.615Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo {"name":"projects/nhom5projectmobile/billingInfo","projectId":"nhom5projectmobile","billingAccountName":"billingAccounts/019392-92E690-7EB147","billingEnabled":true}
+[debug] [2026-04-22T19:56:56.616Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:56.616Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:56.616Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-04-22T19:56:56.616Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2026-04-22T19:56:57.346Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-04-22T19:56:57.346Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D"}
+[debug] [2026-04-22T19:56:57.346Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip GoogleAccessId=service-511412260491%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D
+[debug] [2026-04-22T19:56:57.346Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip [stream]
+[debug] [2026-04-22T19:56:58.312Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip 200
+[debug] [2026-04-22T19:56:58.313Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: creating Node.js 20 (1st Gen) function processChapterPdf(us-central1)... 
+[debug] [2026-04-22T19:56:58.315Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:58.315Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:56:58.316Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions [none]
+[debug] [2026-04-22T19:56:58.316Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions {"name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","entryPoint":"processChapterPdf","runtime":"nodejs20","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"serviceAccountEmail":null,"availableMemoryMb":2048,"timeout":"540s","vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2026-04-22T19:57:02.280Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions 200
+[debug] [2026-04-22T19:57:02.280Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","updateTime":"2026-04-22T19:56:58.698982989Z"}}
+[debug] [2026-04-22T19:57:02.281Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:02.281Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:02.281Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:02.796Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:02.796Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","updateTime":"2026-04-22T19:56:58.698982989Z"}}
+[debug] [2026-04-22T19:57:03.307Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:03.308Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:03.308Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:03.308Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:03.836Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:03.836Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z"}}
+[debug] [2026-04-22T19:57:04.842Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:04.842Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:04.843Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:04.843Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:05.949Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:05.949Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z"}}
+[debug] [2026-04-22T19:57:07.957Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:07.957Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:07.957Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:07.957Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:08.436Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:08.436Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z"}}
+[debug] [2026-04-22T19:57:12.443Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:12.443Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:12.444Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:12.444Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:13.213Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:13.213Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z"}}
+[debug] [2026-04-22T19:57:21.216Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:21.216Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:21.216Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:21.216Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:21.810Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:21.810Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821"}}
+[debug] [2026-04-22T19:57:31.814Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:31.814Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:31.814Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:31.814Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:32.452Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:32.452Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821"}}
+[debug] [2026-04-22T19:57:42.462Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:42.463Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:42.463Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:42.463Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:43.222Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:43.222Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:56:58.698982989Z","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821"}}
+[debug] [2026-04-22T19:57:53.224Z] [create-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T19:57:53.225Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:53.225Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:53.225Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY [none]
+[debug] [2026-04-22T19:57:53.818Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY 200
+[debug] [2026-04-22T19:57:53.818Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY {"name":"operations/cHJvamVjdHMvbmhvbTVwcm9qZWN0bW9iaWxlL2xvY2F0aW9ucy91cy1jZW50cmFsMS9vcGVyYXRpb25zL29wZXJhdGlvbi0xNzc2ODg3ODE1MjcxLTY1MDExZWYwOGYzNmMtZDllNTU0ZjEtZWU4MDllNWY","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","failurePolicy":{}},"entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889613&Signature=BdAogN4dS0TUySONoGAqwqU3VdplZAaQ5Lw7YSF2FpTzNT3n9SxEwgXtvD4wXGm2JoDwP%2F3P1mJtfK5mIGM4yIQNeHfQfS0FNVOJFWBAcRBZ9Tb9KYw%2FRpJkIRPE0zK6TrNnL32dE7tWcKyX%2BEuGumTMo1qAU2uVBHU4kCwqmM9yh8XhppeWQwUjxB4AL%2FtRzUHv%2F4j054Ij6%2BVFccLJjEIFbHD3k4o1xvu8EjS8siikW%2F1jOxITD60DRR7My1lIr4lnrzsT45tWTQ3lA9Dfo4y1U8hIQ4WZsHJWf9TIu6Uzv9CX8Oe4lHt3CHX5bKnFKKfmBUGtiITn57DMp5x%2BQw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-04-22T19:57:44.226296952Z","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821"},"done":true,"error":{"code":3,"message":"Gen1 operation for function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf failed: Build failed: Access to bucket gcf-sources-511412260491-us-central1 denied. You must grant Storage Object Viewer permission to 511412260491-compute@developer.gserviceaccount.com. If you are using VPC Service Controls, you must also grant it access to your service perimeter.\n."}}
+[debug] [2026-04-22T19:57:53.818Z] Got source token undefined for region us-central1
+[error] Gen1 operation for function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf failed: Build failed: Access to bucket gcf-sources-511412260491-us-central1 denied. You must grant Storage Object Viewer permission to 511412260491-compute@developer.gserviceaccount.com. If you are using VPC Service Controls, you must also grant it access to your service perimeter.
+.
+[warn] !  functions: Deploys failed. Skipping deletes. 
+[debug] [2026-04-22T19:57:53.821Z] Total Function Deployment time: 55504
+[debug] [2026-04-22T19:57:53.821Z] 1 Functions Deployed
+[debug] [2026-04-22T19:57:53.821Z] 1 Functions Errored
+[debug] [2026-04-22T19:57:53.821Z] 0 Function Deployments Aborted
+[debug] [2026-04-22T19:57:53.821Z] Average Function Deployment time: 55503
+[info] 
+[info] Functions deploy had errors with the following functions:
+	processChapterPdf(us-central1)
+[debug] [2026-04-22T19:57:53.824Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:53.824Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:57:53.824Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-04-22T19:57:55.210Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2026-04-22T19:57:55.210Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts {"name":"projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2026-04-22T19:57:13.448701Z","updateTime":"2026-04-22T19:57:13.448701Z","mode":"STANDARD_REPOSITORY","vulnerabilityScanningConfig":{"lastEnableTime":"2026-04-22T19:57:00.381939355Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"us-central1-docker.pkg.dev/nhom5projectmobile/gcf-artifacts"}
+[warn] !  functions: No cleanup policy detected for repositories in us-central1. This may result in a small monthly bill as container images accumulate over time. 
+[info] i  functions: Configuring cleanup policy for repository in us-central1. Images older than 1 days will be automatically deleted. 
+[debug] [2026-04-22T19:59:14.885Z] Setting up artifact cleanup policy for region us-central1
+[debug] [2026-04-22T19:59:14.885Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:59:14.885Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T19:59:14.886Z] >>> [apiv2][query] PATCH https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts updateMask=name%2CcleanupPolicies%2CcleanupPolicyDryRun%2Clabels
+[debug] [2026-04-22T19:59:14.886Z] >>> [apiv2][body] PATCH https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts {"name":"projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","condition":{"tagState":"ANY","olderThan":"86400s"},"action":"DELETE"}},"cleanupPolicyDryRun":false,"labels":{"goog-managed-by":"cloudfunctions"}}
+[debug] [2026-04-22T19:59:16.280Z] <<< [apiv2][status] PATCH https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2026-04-22T19:59:16.280Z] <<< [apiv2][body] PATCH https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts {"name":"projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2026-04-22T19:57:13.448701Z","updateTime":"2026-04-22T19:59:12.686795Z","mode":"STANDARD_REPOSITORY","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","action":"DELETE","condition":{"tagState":"ANY","olderThan":"86400s"}}},"vulnerabilityScanningConfig":{"lastEnableTime":"2026-04-22T19:57:00.381939355Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true}
+[info] i  functions: Configured cleanup policy for repository in us-central1. 
+[debug] [2026-04-22T19:59:16.281Z] Functions deploy failed.
+[debug] [2026-04-22T19:59:16.281Z] {
+  "endpoint": {
+    "id": "processChapterPdf",
+    "project": "nhom5projectmobile",
+    "region": "us-central1",
+    "entryPoint": "processChapterPdf",
+    "platform": "gcfv1",
+    "runtime": "nodejs20",
+    "eventTrigger": {
+      "eventType": "google.storage.object.finalize",
+      "retry": false,
+      "eventFilters": {
+        "resource": "projects/_/buckets/nhom5projectmobile.firebasestorage.app"
+      }
+    },
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": 2048,
+    "timeoutSeconds": 540,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "nhom5projectmobile",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "f55ef2853e5419fc70136fd2f565681e20956f0f"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Gen1 operation for function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf failed: Build failed: Access to bucket gcf-sources-511412260491-us-central1 denied. You must grant Storage Object Viewer permission to 511412260491-compute@developer.gserviceaccount.com. If you are using VPC Service Controls, you must also grant it access to your service perimeter.\n.",
+    "original": {
+      "code": 3,
+      "message": "Gen1 operation for function projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf failed: Build failed: Access to bucket gcf-sources-511412260491-us-central1 denied. You must grant Storage Object Viewer permission to 511412260491-compute@developer.gserviceaccount.com. If you are using VPC Service Controls, you must also grant it access to your service perimeter.\n."
+    },
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2026-04-22T19:59:16.282Z] Error: Failed to create function processChapterPdf in region us-central1
+    at D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:54:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Fabricator.createV1Function (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:207:32)
+    at async Fabricator.createEndpoint (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:150:13)
+    at async Fabricator.wrapOperation (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:138:13)
+    at async Promise.all (index 0)
+    at async Promise.allSettled (index 0)
+    at async Fabricator.applyPlan (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:77:45)
+    at async release (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\functions\release\index.js:87:21)
+    at async chain (D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\deploy\index.js:45:9)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2026-04-22T20:00:27.184Z] ----------------------------------------------------------------------
+[debug] [2026-04-22T20:00:27.187Z] Command:       D:\App\NodeJS\node-v24.15.0-win-x64\node.exe D:\App\NodeJS\node-v24.15.0-win-x64\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2026-04-22T20:00:27.187Z] CLI Version:   15.15.0
+[debug] [2026-04-22T20:00:27.187Z] Platform:      win32
+[debug] [2026-04-22T20:00:27.187Z] Node Version:  v24.15.0
+[debug] [2026-04-22T20:00:27.188Z] Time:          Thu Apr 23 2026 03:00:27 GMT+0700 (Indochina Time)
+[debug] [2026-04-22T20:00:27.188Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-22T20:00:28.369Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T20:00:28.371Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T20:00:28.371Z] [iam] checking project nhom5projectmobile for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-04-22T20:00:28.373Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:28.373Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:28.374Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T20:00:28.374Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T20:00:28.375Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T20:00:29.449Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T20:00:29.449Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-04-22T20:00:29.450Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:29.450Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:29.450Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-04-22T20:00:29.450Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-04-22T20:00:30.820Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-04-22T20:00:30.820Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/nhom5projectmobile/serviceAccounts/nhom5projectmobile@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'nhom5projectmobile'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-04-22T20:00:30.823Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:30.824Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:30.824Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T20:00:31.067Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T20:00:31.067Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-04-22T20:00:31.070Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:31.070Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:31.070Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig [none]
+[debug] [2026-04-22T20:00:31.901Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig 200
+[debug] [2026-04-22T20:00:31.901Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nhom5projectmobile/adminSdkConfig {"projectId":"nhom5projectmobile","storageBucket":"nhom5projectmobile.firebasestorage.app"}
+[debug] [2026-04-22T20:00:31.902Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[debug] [2026-04-22T20:00:32.881Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^7.0.0",
+    "fs-extra": "^11.3.4",
+    "pdf2pic": "^3.2.0",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.4.1"
+  },
+  "private": true
+}
+[debug] [2026-04-22T20:00:32.882Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2026-04-22T20:00:32.883Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-22T20:00:32.901Z] Found firebase-functions binary at 'D:\ProjectMobile\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8636
+
+[debug] [2026-04-22T20:00:33.406Z] Got response from /__/functions.yaml {"endpoints":{"processChapterPdf":{"platform":"gcfv1","availableMemoryMb":2048,"timeoutSeconds":540,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"google.storage.object.finalize","eventFilters":{"resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"retry":false},"labels":{},"entryPoint":"processChapterPdf"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2026-04-22T20:00:37.456Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T20:00:37.456Z] > authorizing via signed-in user (caosangle531@gmail.com)
+[debug] [2026-04-22T20:00:37.456Z] [iam] checking project nhom5projectmobile for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2026-04-22T20:00:37.457Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:37.457Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:37.457Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions [none]
+[debug] [2026-04-22T20:00:37.457Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions  x-goog-user-project=nhom5projectmobile
+[debug] [2026-04-22T20:00:37.457Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T20:00:38.937Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions 200
+[debug] [2026-04-22T20:00:38.937Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2026-04-22T20:00:38.938Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:38.938Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:38.938Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances pageSize=100&pageToken=
+[debug] [2026-04-22T20:00:40.565Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances 200
+[debug] [2026-04-22T20:00:40.565Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/nhom5projectmobile/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\ProjectMobile\functions (73.28 KB) for uploading 
+[debug] [2026-04-22T20:00:40.597Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:40.597Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:40.597Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions [none]
+[debug] [2026-04-22T20:00:42.075Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T20:00:42.075Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/-/functions {"functions":[{"name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com","failurePolicy":{}},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"serviceAccountEmail":"nhom5projectmobile@appspot.gserviceaccount.com","updateTime":"2026-04-22T19:57:44.233871675Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/e90748dd-4489-40eb-9e36-cd30be164a6d.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","maxInstances":3000,"ingressSettings":"ALLOW_ALL","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com","satisfiesPzi":true}]}
+[debug] [2026-04-22T20:00:42.076Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:42.076Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:42.077Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-04-22T20:00:43.538Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions 200
+[debug] [2026-04-22T20:00:43.538Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/nhom5projectmobile/locations/-/functions {}
+[debug] [2026-04-22T20:00:43.544Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:43.544Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:43.544Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile [none]
+[debug] [2026-04-22T20:00:43.819Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile 200
+[debug] [2026-04-22T20:00:43.819Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/nhom5projectmobile {"projectNumber":"511412260491","projectId":"nhom5projectmobile","lifecycleState":"ACTIVE","name":"Nhom5ProjectMobile","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-03-08T06:42:34.705663Z"}
+[debug] [2026-04-22T20:00:43.821Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:43.821Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:43.821Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo [none]
+[debug] [2026-04-22T20:00:45.146Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo 200
+[debug] [2026-04-22T20:00:45.147Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/nhom5projectmobile/billingInfo {"name":"projects/nhom5projectmobile/billingInfo","projectId":"nhom5projectmobile","billingAccountName":"billingAccounts/019392-92E690-7EB147","billingEnabled":true}
+[debug] [2026-04-22T20:00:45.148Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:45.148Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:45.148Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-04-22T20:00:45.148Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2026-04-22T20:00:46.076Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-04-22T20:00:46.076Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D"}
+[debug] [2026-04-22T20:00:46.077Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip GoogleAccessId=service-511412260491%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D
+[debug] [2026-04-22T20:00:46.077Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip [stream]
+[debug] [2026-04-22T20:00:48.005Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip 200
+[debug] [2026-04-22T20:00:48.006Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: updating Node.js 20 (1st Gen) function processChapterPdf(us-central1)... 
+[debug] [2026-04-22T20:00:48.009Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:48.009Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:48.010Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf updateMask=name%2CsourceUploadUrl%2CentryPoint%2Cruntime%2CdockerRegistry%2Clabels%2CeventTrigger.eventType%2CeventTrigger.resource%2CeventTrigger.failurePolicy%2CminInstances%2CmaxInstances%2CingressSettings%2CenvironmentVariables%2CserviceAccountEmail%2CavailableMemoryMb%2Ctimeout%2CvpcConnector%2CvpcConnectorEgressSettings%2CsourceToken%2CbuildEnvironmentVariables
+[debug] [2026-04-22T20:00:48.010Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf {"name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","entryPoint":"processChapterPdf","runtime":"nodejs20","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"serviceAccountEmail":null,"availableMemoryMb":2048,"timeout":"540s","vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2026-04-22T20:00:48.810Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf 200
+[debug] [2026-04-22T20:00:48.810Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z"}}
+[debug] [2026-04-22T20:00:48.811Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:48.811Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:48.812Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:00:49.137Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:00:49.138Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z"}}
+[debug] [2026-04-22T20:00:49.653Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:00:49.654Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:49.654Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:49.654Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:00:50.148Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:00:50.148Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:00:51.163Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:00:51.164Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:51.164Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:51.164Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:00:51.657Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:00:51.657Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:00:53.669Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:00:53.670Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:53.670Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:53.670Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:00:54.114Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:00:54.114Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:00:58.118Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:00:58.119Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:58.119Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:00:58.119Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:00:58.422Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:00:58.422Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:01:06.428Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:01:06.429Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:06.429Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:06.429Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:01:06.886Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:01:06.886Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:01:16.890Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:01:16.891Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:16.891Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:16.891Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:01:17.328Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:01:17.328Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:01:27.335Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:01:27.335Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:27.335Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:27.335Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:01:27.965Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:01:27.966Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:01:37.972Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:01:37.972Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:37.972Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:37.973Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:01:38.405Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:01:38.405Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:01:38.405Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:01:48.414Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:01:48.415Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:48.415Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:48.415Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:01:49.839Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:01:49.839Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:01:49.839Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:01:59.846Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:01:59.847Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:59.847Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:01:59.848Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:02:00.501Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:02:00.502Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:02:00.502Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:02:10.516Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:02:10.516Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:10.516Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:10.516Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:02:11.166Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:02:11.166Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:02:11.166Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:02:21.169Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:02:21.169Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:21.170Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:21.170Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:02:22.540Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:02:22.540Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:02:22.540Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:02:32.542Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:02:32.543Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:32.543Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:32.543Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:02:33.190Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:02:33.190Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:02:33.191Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:02:43.205Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:02:43.205Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:43.206Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:43.206Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:02:43.793Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:02:43.793Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:02:43.793Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:02:53.797Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:02:53.797Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:53.797Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:02:53.798Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:02:54.391Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:02:54.392Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:02:54.392Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:03:04.400Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:03:04.400Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:04.400Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:04.401Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:03:05.005Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:03:05.006Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:03:05.006Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:03:15.015Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:03:15.015Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:15.016Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:15.016Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:03:15.639Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:03:15.639Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:00:45Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"}}
+[debug] [2026-04-22T20:03:15.639Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[debug] [2026-04-22T20:03:25.646Z] [update-default-us-central1-processChapterPdf] Retrying task index 0
+[debug] [2026-04-22T20:03:25.646Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:25.646Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:25.647Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN [none]
+[debug] [2026-04-22T20:03:26.270Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN 200
+[debug] [2026-04-22T20:03:26.270Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN {"name":"operations/bmhvbTVwcm9qZWN0bW9iaWxlL3VzLWNlbnRyYWwxL3Byb2Nlc3NDaGFwdGVyUGRmL1gzdVhwRWtZVXVN","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com"},"status":"OFFLINE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"updateTime":"2026-04-22T19:57:43.953Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip?GoogleAccessId=service-511412260491@gcf-admin-robot.iam.gserviceaccount.com&Expires=1776889842&Signature=zmmuGmoWCAZDG9EtmMk2qUIWbH8pcPfI0OE5bqxWOvBivFvXEZA5n4qHW%2B21tjsfdRFb27GFj%2BefF8BoxK6zQJdlFT1wa52pAYCR5Y6CwIXp35TpM2W7p6Dp7H2vyu39guwres%2B26rmZx3vk0I2BeTfhM5OExLE7eE5lAW9LSg6HFvKjpHMLkya%2BSLV8GC5Fb15GLAsww%2Fsrq%2FBlrxWzaeZ0Mi91ei7f9TKD0FTZ8s4EKU4DN6Y4oGBafDxj2xgnTah0xsnfJRTwzg8Ocf5ZK8REjS5wMipO0tH3CIOcG%2BKD0OubtLj6olOhyz8yrvKmy2Euqu7aLmqvnF6dUqDheg%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","buildId":"d3e60a7b-98b4-4e67-a541-3fdba2663821","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/d3e60a7b-98b4-4e67-a541-3fdba2663821","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"},"versionId":"2","updateTime":"2026-04-22T20:03:20Z","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","sourceToken":"3ee698cd-850b-4031-b798-6c45f83ad31b","buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688"},"done":true,"response":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf","eventTrigger":{"eventType":"google.storage.object.finalize","resource":"projects/_/buckets/nhom5projectmobile.firebasestorage.app","service":"storage.googleapis.com","failurePolicy":{}},"status":"ACTIVE","entryPoint":"processChapterPdf","timeout":"540s","availableMemoryMb":2048,"serviceAccountEmail":"nhom5projectmobile@appspot.gserviceaccount.com","updateTime":"2026-04-22T20:03:20.615Z","versionId":"2","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"f55ef2853e5419fc70136fd2f565681e20956f0f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-92180997711.us-central1.cloudfunctions.appspot.com/887171c3-20e7-4d14-8898-3b6dcc40058a.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"nhom5projectmobile\",\"storageBucket\":\"nhom5projectmobile.firebasestorage.app\"}","GCLOUD_PROJECT":"nhom5projectmobile","EVENTARC_CLOUD_EVENT_SOURCE":"projects/nhom5projectmobile/locations/us-central1/functions/processChapterPdf"},"runtime":"nodejs20","maxInstances":3000,"ingressSettings":"ALLOW_ALL","buildId":"7bba41ec-d0a3-4a9a-8b1a-f202443b7688","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/511412260491/locations/us-central1/builds/7bba41ec-d0a3-4a9a-8b1a-f202443b7688","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/nhom5projectmobile/serviceAccounts/511412260491-compute@developer.gserviceaccount.com"}}
+[debug] [2026-04-22T20:03:26.270Z] Got source token 3ee698cd-850b-4031-b798-6c45f83ad31b for region us-central1
+[info] +  functions[processChapterPdf(us-central1)] Successful update operation. 
+[debug] [2026-04-22T20:03:26.272Z] Total Function Deployment time: 158263
+[debug] [2026-04-22T20:03:26.272Z] 1 Functions Deployed
+[debug] [2026-04-22T20:03:26.272Z] 0 Functions Errored
+[debug] [2026-04-22T20:03:26.272Z] 0 Function Deployments Aborted
+[debug] [2026-04-22T20:03:26.272Z] Average Function Deployment time: 158262
+[debug] [2026-04-22T20:03:26.273Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:26.273Z] Checked if tokens are valid: true, expires at: 1776889982334
+[debug] [2026-04-22T20:03:26.273Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-04-22T20:03:27.636Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/nhom5projectmobile/locations/us-central1/repositories/gcf-artifacts 200

@@ -31,8 +31,8 @@ public class HomeFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         // 1. Ánh xạ View
-        rvHotStories = view.findViewById(R.id.rvHotStories);
-        rvNewStories = view.findViewById(R.id.rvNewStories);
+        rvNewStories = view.findViewById(R.id.rvNewStories); // Chứa các truyện Mới cập nhật (ở trên)
+        rvHotStories = view.findViewById(R.id.rvListStories); // Chứa Danh sách truyện nhiều lượt xem (ở dưới)
 
         // Grid 3 cột (LayoutManager thực ra đã set trong XML nhưng set lại ở Java cho chắc chắn)
         rvHotStories.setLayoutManager(new GridLayoutManager(getContext(), 3));
@@ -51,9 +51,15 @@ public class HomeFragment extends Fragment {
             openStoryDetail(story);
         });
 
+        hotAdapter = new StoryAdapter(hotStoryList, story -> {
+            openStoryDetail(story);
+        });
+
         newAdapter = new StoryAdapter(newStoryList, story -> {
             openStoryDetail(story);
         });
+
+        newAdapter.setTagText("NEW");
 
         rvHotStories.setAdapter(hotAdapter);
         rvNewStories.setAdapter(newAdapter);
@@ -69,7 +75,7 @@ public class HomeFragment extends Fragment {
         // Sắp xếp theo monthlyViews giảm dần (Truyện nhiều lượt xem nhất)
         db.collection("stories")
                 .orderBy("dailyViews", Query.Direction.DESCENDING)
-                .limit(6) // Lấy 6 truyện để hiển thị thành 2 hàng cho đẹp
+                .limit(18)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     hotStoryList.clear();

@@ -68,13 +68,32 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnReadNow"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#E91E63"
-                android:text="ĐỌC NGAY"
-                android:textColor="#FFFFFF" />
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnReadNow"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#E91E63"
+                    android:text="ĐỌC TỪ ĐẦU"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnReadContinue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#4CAF50"
+                    android:text="ĐỌC TIẾP"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Mô tả chi tiết truyện sẽ hiển thị ở đây..."
+                android:text="Mô tả chi tiết truyện"
                 android:textColor="#666666"
                 android:textSize="14sp" />
 

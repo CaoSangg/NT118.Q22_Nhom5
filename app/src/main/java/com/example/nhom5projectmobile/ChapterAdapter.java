@@ -13,10 +13,13 @@ import java.util.List;
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterViewHolder> {
     private Context context;
     private List<Chapter> chapterList;
+    private String storyId; // Biến mới để nhận mã truyện
 
-    public ChapterAdapter(Context context, List<Chapter> chapterList) {
+    // CẬP NHẬT CONSTRUCTOR: Thêm String storyId
+    public ChapterAdapter(Context context, List<Chapter> chapterList, String storyId) {
         this.context = context;
         this.chapterList = chapterList;
+        this.storyId = storyId;
     }
 
     @NonNull
@@ -31,10 +34,11 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
         Chapter chapter = chapterList.get(position);
         holder.tvChapterTitle.setText(chapter.getTitle());
 
-        // Khi nhấn vào một chương, mở màn hình đọc PDF chương đó
+        // BẮT SỰ KIỆN CLICK: Mở màn hình đọc truyện mới (ReaderActivity)
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, PdfViewActivity.class);
-            intent.putExtra("PDF_URL", chapter.getContent()); // Lấy link từ field 'content'
+            Intent intent = new Intent(context, ReaderActivity.class); // Trỏ sang Activity hiển thị ảnh
+            intent.putExtra("STORY_ID", storyId);
+            intent.putExtra("CHAPTER_ID", chapter.getChapterId());
             context.startActivity(intent);
         });
     }
