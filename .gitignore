@@ -16,3 +16,6 @@ local.properties
 # Firebase configuration file
 app/google-services.json
 .idea/
+
+app/build/
+functions/node_modules/

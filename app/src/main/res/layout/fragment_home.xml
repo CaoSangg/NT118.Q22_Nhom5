@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Truyện Hot"
+                    android:text="Mới Cập Nhật"
                     android:textColor="#333333"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -49,7 +49,7 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHotStories"
+            android:id="@+id/rvNewStories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Mới Cập Nhật"
+                    android:text="Truyện Hot"
                     android:textColor="#333333"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -96,7 +96,7 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNewStories"
+            android:id="@+id/rvListStories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"

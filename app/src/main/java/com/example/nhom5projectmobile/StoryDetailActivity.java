@@ -24,13 +24,13 @@ public class StoryDetailActivity extends AppCompatActivity {
 
     private ImageView imgCover;
     private TextView tvTitle, tvAuthor, tvDescription;
-    private Button btnReadNow;
     private FirebaseFirestore db;
     private String storyId;
     private String currentPdfUrl;
     private RecyclerView rvChapters;
     private ChapterAdapter chapterAdapter;
     private List<Chapter> chapterList;
+    private Button btnReadNow, btnReadContinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,11 @@ public class StoryDetailActivity extends AppCompatActivity {
         btnReadNow = findViewById(R.id.btnReadNow);
         btnReadNow.setEnabled(false);
         rvChapters = findViewById(R.id.rvChapters);
+        btnReadNow = findViewById(R.id.btnReadNow);
+        btnReadContinue = findViewById(R.id.btnReadContinue); // Ánh xạ nút mới
+
+        btnReadNow.setEnabled(false);
+        btnReadContinue.setEnabled(false); // Khóa luôn nút này chờ data
 
         // 3. Cấu hình RecyclerView
         rvChapters.setLayoutManager(new LinearLayoutManager(this));
@@ -61,22 +66,32 @@ public class StoryDetailActivity extends AppCompatActivity {
 
         // 4. Thiết lập Adapter
         chapterList = new ArrayList<>();
-        chapterAdapter = new ChapterAdapter(this, chapterList);
+        chapterAdapter = new ChapterAdapter(this, chapterList, storyId);
         rvChapters.setAdapter(chapterAdapter);
 
         if (storyId != null) {
             loadStoryDetails();
         }
 
-        // 5. Nút đọc ngay (Dành cho truyện chỉ có 1 link PDF tổng)
+        // BẮT SỰ KIỆN NÚT "ĐỌC TỪ ĐẦU"
         btnReadNow.setOnClickListener(v -> {
-            if (currentPdfUrl != null && !currentPdfUrl.isEmpty()) {
-                Intent intent = new Intent(StoryDetailActivity.this, PdfViewActivity.class);
-                intent.putExtra("PDF_URL", currentPdfUrl);
+            if (chapterList != null && !chapterList.isEmpty()) {
+                // Lấy chương đầu tiên trong danh sách (Vị trí 0)
+                Chapter firstChapter = chapterList.get(0);
+
+                Intent intent = new Intent(StoryDetailActivity.this, ReaderActivity.class);
+                intent.putExtra("STORY_ID", storyId);
+                intent.putExtra("CHAPTER_ID", firstChapter.getChapterId());
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Truyện này chưa có file PDF tổng", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Truyện này chưa có chương nào!", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        // BẮT SỰ KIỆN NÚT "ĐỌC TIẾP"
+        btnReadContinue.setOnClickListener(v -> {
+            Toast.makeText(this, "Tính năng Đọc tiếp sẽ sớm ra mắt!", Toast.LENGTH_SHORT).show();
+            // TODO: Nơi viết logic lấy Chapter ID đang đọc dở từ Firebase và mở ReaderActivity
         });
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
@@ -131,8 +146,11 @@ public class StoryDetailActivity extends AppCompatActivity {
                         currentPdfUrl = chapterList.get(0).getContent();
                     }
 
-                    // Bây giờ mới kích hoạt nút Đọc ngay
-                    btnReadNow.setEnabled(true);
+                    // Kích hoạt nút Đọc ngay và Đọc tiếp
+                    if (!chapterList.isEmpty()) {
+                        btnReadNow.setEnabled(true);
+                        btnReadContinue.setEnabled(true);
+                    }
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(this, "Lỗi tải chương: " + e.getMessage(), Toast.LENGTH_SHORT).show()
