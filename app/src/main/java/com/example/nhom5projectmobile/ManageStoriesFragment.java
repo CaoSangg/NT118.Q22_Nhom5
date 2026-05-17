@@ -285,10 +285,8 @@ public class ManageStoriesFragment extends Fragment {
                     tempChapterId = "";
                     tempChapterTitle = "";
 
-                    // Cập nhật giao diện (cộng thêm 1 chương)
-                    int currentChapters = Integer.parseInt(story.getChapter());
-                    story.setChapter(String.valueOf(currentChapters + 1));
-                    adapter.notifyDataSetChanged();
+
+                    loadStoriesFromFirestore();
                 });
 
             } catch (Exception e) {

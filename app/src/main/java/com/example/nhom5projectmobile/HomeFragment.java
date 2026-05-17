@@ -131,9 +131,13 @@ public class HomeFragment extends Fragment {
             views = doc.getLong("dailyViews");
         }
 
-        // 2. Lấy tên Chapter động
-        // Lấy status thay vì lastestChapterTitle
-        String chapter = doc.contains("status") ? doc.getString("status") : "Đang cập nhật";
+        // 2. Lấy tên trạng thái và số chương
+        String status = doc.contains("status") ? doc.getString("status") : "Đang cập nhật";
+        long chaptersCount = doc.contains("chaptersCount") ? doc.getLong("chaptersCount") : 0;
+
+        // Dùng \n để chữ Chương tự nhảy xuống dòng dưới chữ Đang ra
+        String chapter = chaptersCount > 0 ? status + "\nChương " + chaptersCount : status;
+
 
         // 3. Lấy thời gian và tính toán "X ngày trước"
         String timeAgo = "Mới đây";
