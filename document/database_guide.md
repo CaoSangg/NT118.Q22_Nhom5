@@ -10,6 +10,10 @@ users/
     │   ├── google: Boolean
     │   └── facebook: Boolean
     └── createdAt: Timestamp
+    ├── role: String
+    ├── canManageStories: Boolean
+    ├── emailVerified: Boolean
+    ├── authProvider: String
 
 stories/
 └── [storyId] 

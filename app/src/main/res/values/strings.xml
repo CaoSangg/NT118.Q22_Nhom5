@@ -1,5 +1,23 @@
 <resources>
+
     <string name="app_name">Nhom5ProjectMobile</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hello_blank_fragment">
+        Hello blank fragment
+    </string>
+
+    <!-- FACEBOOK -->
+
+    <string name="facebook_app_id">
+        940825728788105
+    </string>
+
+    <string name="fb_login_protocol_scheme">
+        fb940825728788105
+    </string>
+
+    <string name="facebook_client_token">
+        YOUR_FACEBOOK_CLIENT_TOKEN
+    </string>
+
 </resources>
