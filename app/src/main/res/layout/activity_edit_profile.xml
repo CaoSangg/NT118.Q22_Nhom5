@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,82 +16,43 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_revert"
-            android:contentDescription="Quay lại" />
-
-        <TextView
-            android:id="@+id/tvEditTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CHỈNH SỬA HỒ SƠ"
-            android:textColor="#C2185B"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="32dp"/>
+            android:contentDescription="Quay lại"
+            android:src="@android:drawable/ic_menu_revert"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgEditPreview"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:padding="2dp"
-            android:src="@android:drawable/ic_menu_gallery"
-            app:strokeColor="#C2185B"
-            app:strokeWidth="2dp"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.SmallComponent" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@android:drawable/ic_menu_gallery"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChooseImage"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:text="CHỌN ẢNH TỪ MÁY"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tên hiển thị mới"
-            app:startIconDrawable="@android:drawable/ic_menu_edit">
+            android:layout_marginTop="20dp">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Link ảnh đại diện (URL)"
-            app:startIconDrawable="@android:drawable/ic_menu_gallery">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEditAvatarUrl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textUri" />
+                android:hint="Tên hiển thị"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveProfile"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
-            android:text="LƯU THAY ĐỔI"
-            android:backgroundTint="#C2185B"
-            android:textColor="@color/white"
-            app:cornerRadius="12dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCancel"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="HỦY BỎ"
-            android:textColor="#757575" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_marginTop="24dp"
+            android:text="LƯU"/>
 
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>

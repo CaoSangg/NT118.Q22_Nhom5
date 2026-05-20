@@ -120,6 +120,5 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/layout_fixed_top"
-        android:layout_alignParentBottom="true" />
+        android:layout_below="@id/layout_fixed_top" />
 </RelativeLayout>

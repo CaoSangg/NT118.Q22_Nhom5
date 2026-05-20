@@ -118,48 +118,64 @@ public class MainActivity extends AppCompatActivity {
 
     // Hàm hiển thị Menu
     private void showPopupMenu(View view) {
-        // Khởi tạo PopupMenu gắn với View (nút btnMenuMore)
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenuInflater().inflate(R.menu.dropdown_menu, popupMenu.getMenu());
 
-        boolean isAdmin = true;
+        com.google.firebase.auth.FirebaseUser currentUser = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
+        android.view.Menu menu = popupMenu.getMenu();
 
-        if (!isAdmin) {
-            popupMenu.getMenu().findItem(R.id.nav_manage_stories).setVisible(false);
-            popupMenu.getMenu().findItem(R.id.nav_manage_accounts).setVisible(false);
+        if (currentUser == null) {
+            // CHƯA ĐĂNG NHẬP: Ẩn tất cả ngoại trừ Đăng nhập
+            menu.findItem(R.id.nav_profile).setVisible(false);
+            menu.findItem(R.id.nav_library).setVisible(false);
+            menu.findItem(R.id.nav_settings).setVisible(false);
+            menu.findItem(R.id.nav_manage_stories).setVisible(false);
+            menu.findItem(R.id.nav_manage_accounts).setVisible(false);
+        } else {
+            // ĐÃ ĐĂNG NHẬP: Ẩn nút Đăng nhập
+            menu.findItem(R.id.nav_login).setVisible(false);
+
+            // Mặc định ẩn 2 nút quản lý, chờ load từ Firestore
+            menu.findItem(R.id.nav_manage_stories).setVisible(false);
+            menu.findItem(R.id.nav_manage_accounts).setVisible(false);
+
+            // Fetch quyền từ Firestore
+            com.google.firebase.firestore.FirebaseFirestore.getInstance()
+                    .collection("users").document(currentUser.getUid()).get()
+                    .addOnSuccessListener(doc -> {
+                        if (doc.exists()) {
+                            String role = doc.getString("role");
+                            Boolean canManage = doc.getBoolean("canManageStories");
+
+                            if ("admin".equals(role)) {
+                                menu.findItem(R.id.nav_manage_stories).setVisible(true);
+                                menu.findItem(R.id.nav_manage_accounts).setVisible(true);
+                            } else if (Boolean.TRUE.equals(canManage)) {
+                                menu.findItem(R.id.nav_manage_stories).setVisible(true);
+                            }
+                        }
+                    });
         }
 
-        // Lắng nghe sự kiện ở các mục tương ứng trong Menu
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int itemId = item.getItemId();
-
-                    // Chuyển sang màn hình Đăng nhập
-                if (itemId == R.id.nav_login) {
-                    replaceFragmentWithBackStack(new ProfileFragment());
-                    return true;
-
-                    // Chuyển sang màn Profile
-                } else if (itemId == R.id.nav_profile) {
-                    return true;
-
-                    // Chuyển sang màn hình Tủ truyện
-                } else if (itemId == R.id.nav_library) {
-                    return true;
-
-                    // Chuyển sang màn hình Cài đặt
-                } else if (itemId == R.id.nav_settings) {
-                    return true;
-
-                    // Chuyển sang màn hình Quản lý truyện
-                } else if (itemId == R.id.nav_manage_stories) {
-                    replaceFragmentWithBackStack(new ManageStoriesFragment());
-                    return true;
-                }
-
-                return false;
+        popupMenu.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_login) {
+                // Mở đúng LoginActivity
+                startActivity(new android.content.Intent(MainActivity.this, LoginActivity.class));
+                return true;
+            } else if (itemId == R.id.nav_profile) {
+                // Mở Hồ sơ
+                replaceFragmentWithBackStack(new ProfileFragment());
+                return true;
+            } else if (itemId == R.id.nav_manage_stories) {
+                replaceFragmentWithBackStack(new ManageStoriesFragment());
+                return true;
+            } else if (itemId == R.id.nav_manage_accounts) {
+                // Nếu bạn dùng Fragment cho quản lý User thì gọi ở đây
+                startActivity(new android.content.Intent(MainActivity.this, UserManagementActivity.class));
+                return true;
             }
+            return false;
         });
 
         popupMenu.show();
