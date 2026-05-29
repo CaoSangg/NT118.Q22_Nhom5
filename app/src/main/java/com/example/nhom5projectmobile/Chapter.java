@@ -19,4 +19,12 @@ public class Chapter {
     public String getContent() { return content; }
     public long getOrderIndex() { return orderIndex; }
     public long getChapterNumber() { return chapterNumber; }
+
+    // CÁC HÀM SETTER (BỔ SUNG ĐỂ SỬ DỤNG CHO OFFLINE VÀ DATABASE)
+    public void setChapterId(String chapterId) { this.chapterId = chapterId; }
+    public void setTitle(String title) { this.title = title; }
+    public void setPages(List<String> pages) { this.pages = pages; }
+    public void setContent(String content) { this.content = content; }
+    public void setOrderIndex(long orderIndex) { this.orderIndex = orderIndex; }
+    public void setChapterNumber(long chapterNumber) { this.chapterNumber = chapterNumber; }
 }

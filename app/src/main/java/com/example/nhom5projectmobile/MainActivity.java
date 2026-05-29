@@ -1,6 +1,7 @@
 package com.example.nhom5projectmobile;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,13 +14,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Khởi tạo các view
         TextView btnXepHang = findViewById(R.id.btn_xep_hang);
         ImageView btnMenuMore = findViewById(R.id.btnMenuMore);
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     // Hàm hiển thị Menu
     private void showPopupMenu(View view) {
