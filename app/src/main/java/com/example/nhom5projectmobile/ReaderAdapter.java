@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import java.io.File; // <-- Bổ sung thư viện File để đọc bộ nhớ máy
 import java.util.List;
 
 public class ReaderAdapter extends RecyclerView.Adapter<ReaderAdapter.PageViewHolder> {
@@ -30,14 +32,26 @@ public class ReaderAdapter extends RecyclerView.Adapter<ReaderAdapter.PageViewHo
 
     @Override
     public void onBindViewHolder(@NonNull PageViewHolder holder, int position) {
-        String url = pageUrls.get(position);
+        String path = pageUrls.get(position);
 
-        // Glide sẽ tải ảnh mượt mà và lưu cache để đọc lại không tốn mạng
-        Glide.with(context)
-                .load(url)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.drawable.ic_launcher_background) // Có thể thay bằng ảnh loading mờ
-                .into(holder.imgPage);
+        // Kiểm tra xem đây là đường dẫn vật lý trong máy (Offline) hay link web (Online)
+        if (path.startsWith("/")) {
+            // CHẾ ĐỘ OFFLINE: Đọc file vật lý
+            File imgFile = new File(path);
+            if (imgFile.exists()) {
+                Glide.with(context)
+                        .load(imgFile)
+                        .placeholder(R.drawable.ic_launcher_background) // Có thể thay bằng ảnh loading mờ
+                        .into(holder.imgPage);
+            }
+        } else {
+            // CHẾ ĐỘ ONLINE: Load từ Firebase qua mạng
+            Glide.with(context)
+                    .load(path)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.drawable.ic_launcher_background) // Có thể thay bằng ảnh loading mờ
+                    .into(holder.imgPage);
+        }
     }
 
     @Override

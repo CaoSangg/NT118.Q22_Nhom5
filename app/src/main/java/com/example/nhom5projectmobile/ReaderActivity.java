@@ -13,11 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReaderActivity extends AppCompatActivity {
 
@@ -31,11 +36,11 @@ public class ReaderActivity extends AppCompatActivity {
     private TextView tvReaderChapterTitle;
     private Spinner spinnerChapters;
 
-    private List<String> chapterIdList;    // Lưu danh sách ID của các chương
-    private List<String> chapterTitleList; // Lưu tên các chương để hiển thị lên Spinner
+    private List<String> chapterIdList;
+    private List<String> chapterTitleList;
     private ArrayAdapter<String> spinnerAdapter;
-    private int currentChapterIndex = -1;  // Vị trí chương đang đọc
-    private boolean isUserSelecting = false; // Biến cờ để chống lỗi tự động nhảy chương của Spinner
+    private int currentChapterIndex = -1;
+    private boolean isUserSelecting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +83,6 @@ public class ReaderActivity extends AppCompatActivity {
         spinnerChapters.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // Chỉ chuyển chương nếu người dùng thực sự tự tay bấm (isUserSelecting = true)
                 if (currentChapterIndex != position && isUserSelecting) {
                     currentChapterIndex = position;
                     chapterId = chapterIdList.get(currentChapterIndex);
@@ -95,7 +99,7 @@ public class ReaderActivity extends AppCompatActivity {
             if (currentChapterIndex > 0) {
                 currentChapterIndex--;
                 chapterId = chapterIdList.get(currentChapterIndex);
-                isUserSelecting = false; // Tắt cờ để Spinner không bị kích hoạt 2 lần
+                isUserSelecting = false;
                 spinnerChapters.setSelection(currentChapterIndex);
                 updateUIAndLoadChapter();
             } else {
@@ -115,16 +119,40 @@ public class ReaderActivity extends AppCompatActivity {
             }
         });
 
-        // 5. Thay vì chỉ load ảnh, ta sẽ load toàn bộ danh sách chương trước
-        if (storyId != null && chapterId != null) {
-            fetchAllChapters();
+        // 5. Kiểm tra xem đang đọc Online hay Offline
+        boolean isOffline = getIntent().getBooleanExtra("IS_OFFLINE", false);
+        if (isOffline) {
+            loadOfflineData(); // Gọi hàm đọc từ SQLite
         } else {
-            Toast.makeText(this, "Lỗi: Không tìm thấy dữ liệu", Toast.LENGTH_SHORT).show();
-            finish();
+            if (storyId != null && chapterId != null) {
+                fetchAllChapters(); // Chạy online từ Firebase cũ
+            } else {
+                Toast.makeText(this, "Lỗi: Không tìm thấy dữ liệu", Toast.LENGTH_SHORT).show();
+                finish();
+            }
         }
     }
 
-    // Lấy toàn bộ chương của truyện để nạp vào Spinner
+    // ====================================================================
+    // CÁC HÀM XỬ LÝ CHUNG
+    // ====================================================================
+
+    private void updateUIAndLoadChapter() {
+        tvReaderChapterTitle.setText(chapterTitleList.get(currentChapterIndex));
+
+        // Nếu offline thì lôi ảnh trong máy ra, ngược lại thì gọi Firebase
+        if (getIntent().getBooleanExtra("IS_OFFLINE", false)) {
+            loadOfflineChapterPages();
+        } else {
+            loadChapterPages();
+            saveReadingProgress(chapterId); // Chỉ lưu lịch sử Firebase khi có mạng
+        }
+    }
+
+    // ====================================================================
+    // CÁC HÀM ĐỌC ONLINE (TỪ FIREBASE)
+    // ====================================================================
+
     private void fetchAllChapters() {
         db.collection("stories").document(storyId).collection("chapters")
                 .orderBy("createdAt", com.google.firebase.firestore.Query.Direction.ASCENDING)
@@ -136,7 +164,6 @@ public class ReaderActivity extends AppCompatActivity {
                     for (DocumentSnapshot doc : queryDocumentSnapshots) {
                         chapterIdList.add(doc.getId());
 
-                        // Cố gắng lấy tên chương từ Firestore. Nếu không có biến title thì hiển thị tạm ID
                         String cTitle = doc.getString("title");
                         if (cTitle == null || cTitle.isEmpty()) {
                             cTitle = "Chương " + doc.getId();
@@ -145,7 +172,6 @@ public class ReaderActivity extends AppCompatActivity {
                     }
                     spinnerAdapter.notifyDataSetChanged();
 
-                    // Tìm vị trí của chương hiện tại đang đọc
                     currentChapterIndex = chapterIdList.indexOf(chapterId);
                     if (currentChapterIndex != -1) {
                         isUserSelecting = false;
@@ -154,12 +180,6 @@ public class ReaderActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Lỗi tải danh sách chương", Toast.LENGTH_SHORT).show());
-    }
-
-    // Hàm cập nhật giao diện (Tên chương trên thanh Menu) và load ảnh
-    private void updateUIAndLoadChapter() {
-        tvReaderChapterTitle.setText(chapterTitleList.get(currentChapterIndex));
-        loadChapterPages();
     }
 
     private void loadChapterPages() {
@@ -173,8 +193,6 @@ public class ReaderActivity extends AppCompatActivity {
                             pageList.clear();
                             pageList.addAll(urls);
                             adapter.notifyDataSetChanged();
-
-                            // Tự động cuộn lên hình ảnh đầu tiên khi chuyển chương
                             rvReader.scrollToPosition(0);
                         } else {
                             pageList.clear();
@@ -184,5 +202,62 @@ public class ReaderActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Lỗi tải ảnh: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void saveReadingProgress(String currentChapterId) {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null || storyId == null || currentChapterId == null) return;
+
+        String userId = currentUser.getUid();
+        Map<String, Object> historyData = new HashMap<>();
+        historyData.put("lastReadChapterId", currentChapterId);
+        historyData.put("timestamp", FieldValue.serverTimestamp());
+
+        FirebaseFirestore.getInstance()
+                .collection("users").document(userId)
+                .collection("history").document(storyId)
+                .set(historyData)
+                .addOnFailureListener(e -> {});
+    }
+
+    // ====================================================================
+    // CÁC HÀM ĐỌC OFFLINE (TỪ BỘ NHỚ MÁY)
+    // ====================================================================
+
+    private void loadOfflineData() {
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        chapterIdList.clear();
+        chapterTitleList.clear();
+
+        // 1. Đọc toàn bộ danh sách chương offline nạp vào Spinner để chuyển chương
+        List<Chapter> offlineChaps = dbHelper.getOfflineChapters(storyId);
+        for (Chapter c : offlineChaps) {
+            chapterIdList.add(c.getChapterId());
+            chapterTitleList.add(c.getTitle());
+        }
+        spinnerAdapter.notifyDataSetChanged();
+
+        // 2. Định vị chương hiện tại đang đọc
+        currentChapterIndex = chapterIdList.indexOf(chapterId);
+        if (currentChapterIndex != -1) {
+            isUserSelecting = false;
+            spinnerChapters.setSelection(currentChapterIndex);
+            updateUIAndLoadChapter();
+        }
+    }
+
+    private void loadOfflineChapterPages() {
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        List<String> localPaths = dbHelper.getOfflineChapterPages(chapterId); // Lấy list đường dẫn ảnh cục bộ
+
+        pageList.clear();
+        if (localPaths != null && !localPaths.isEmpty()) {
+            pageList.addAll(localPaths);
+            adapter.notifyDataSetChanged();
+            rvReader.scrollToPosition(0); // Cuộn lên đầu trang
+        } else {
+            adapter.notifyDataSetChanged();
+            Toast.makeText(this, "Không tìm thấy dữ liệu ảnh offline của chương này", Toast.LENGTH_SHORT).show();
+        }
     }
 }

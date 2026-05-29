@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,12 +15,17 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     private Context context;
     private List<Chapter> chapterList;
     private String storyId; // Biến mới để nhận mã truyện
+    private String storyTitle = "Truyện Offline";
+    private String coverUrl = "";
+    public boolean isOffline = false;
+
 
     // CẬP NHẬT CONSTRUCTOR: Thêm String storyId
     public ChapterAdapter(Context context, List<Chapter> chapterList, String storyId) {
         this.context = context;
         this.chapterList = chapterList;
         this.storyId = storyId;
+
     }
 
     @NonNull
@@ -39,8 +45,23 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
             Intent intent = new Intent(context, ReaderActivity.class); // Trỏ sang Activity hiển thị ảnh
             intent.putExtra("STORY_ID", storyId);
             intent.putExtra("CHAPTER_ID", chapter.getChapterId());
+            if (isOffline) intent.putExtra("IS_OFFLINE", true);
             context.startActivity(intent);
         });
+        if (holder.btnDownload != null) {
+            holder.btnDownload.setOnClickListener(v -> {
+                // Gọi anh công nhân tải ngầm ra làm việc
+                DownloadHelper.downloadChapter(
+                        context,
+                        storyId,
+                        storyTitle,
+                        coverUrl,
+                        chapter.getChapterId(),
+                        chapter.getTitle(),
+                        position
+                );
+            });
+        }
     }
 
     @Override
@@ -48,9 +69,11 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
 
     static class ChapterViewHolder extends RecyclerView.ViewHolder {
         TextView tvChapterTitle;
+        ImageView btnDownload;
         public ChapterViewHolder(@NonNull View itemView) {
             super(itemView);
             tvChapterTitle = itemView.findViewById(R.id.tvChapterTitle);
+            btnDownload = itemView.findViewById(R.id.btnDownload);
         }
     }
 }
