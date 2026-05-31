@@ -23,7 +23,7 @@ import com.google.firebase.firestore.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HotStoriesFragment extends Fragment {
+public class LibraryFragment extends Fragment {
 
     private RecyclerView rv;
     private StoryAdapter adapter;
@@ -33,7 +33,7 @@ public class HotStoriesFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_hot_stories, container, false); // Đảm bảo tên file XML đúng
+        View view = inflater.inflate(R.layout.fragment_library, container, false); // Ánh xạ layout fragment_library mới
 
         rv = view.findViewById(R.id.rvHotGrid);
 
@@ -64,11 +64,11 @@ public class HotStoriesFragment extends Fragment {
                             loadFollowedStories();
                             break;
                         case 1: // Bấm vào "Vừa đọc"
-                            gridLayoutManager.setSpanCount(3); // Đổi thành 2 cột cho giống ảnh
+                            gridLayoutManager.setSpanCount(3);
                             loadHistoryStories();
                             break;
                         case 2: // Bấm vào "Đã tải"
-                            gridLayoutManager.setSpanCount(3); // Giữ nguyên kích thước 3 cột cho đẹp
+                            gridLayoutManager.setSpanCount(3);
                             loadDownloadedStories(); // Gọi hàm tải dữ liệu từ SQLite
                             break;
                     }
@@ -183,7 +183,14 @@ public class HotStoriesFragment extends Fragment {
         String author = doc.getString("author");
         String coverImage = doc.getString("coverImage");
 
-        long views = doc.contains("viewCount") ? doc.getLong("viewCount") : (doc.contains("dailyViews") ? doc.getLong("dailyViews") : 0);
+        long views = 0;
+        if (doc.contains("viewsCount")) {
+            views = doc.getLong("viewsCount");
+        } else if (doc.contains("viewCount")) {
+            views = doc.getLong("viewCount");
+        } else if (doc.contains("dailyViews")) {
+            views = doc.getLong("dailyViews");
+        }
         String status = doc.contains("status") ? doc.getString("status") : "Đang cập nhật";
         long chaptersCount = doc.contains("chaptersCount") ? doc.getLong("chaptersCount") : 0;
         String chapter = chaptersCount > 0 ? status + "\nChương " + chaptersCount : status;
@@ -212,6 +219,7 @@ public class HotStoriesFragment extends Fragment {
         if (minutes > 0) return minutes + " phút trước";
         return "Vừa xong";
     }
+
     private void loadDownloadedStories() {
         DatabaseHelper dbHelper = new DatabaseHelper(getContext());
         storyList.clear();

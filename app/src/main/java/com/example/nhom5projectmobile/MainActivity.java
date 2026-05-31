@@ -16,6 +16,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.messaging.FirebaseMessaging;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Khởi tạo kênh thông báo & yêu cầu quyền đẩy thông báo
+        createNotificationChannel();
+        requestNotificationPermission();
+        registerFCMToken();
+
         // Khởi tạo các view
         TextView btnXepHang = findViewById(R.id.btn_xep_hang);
         ImageView btnMenuMore = findViewById(R.id.btnMenuMore);
@@ -95,10 +107,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Bắt sự kiện khi nhấn vào nút Truyện Hot
+        // Bắt sự kiện khi nhấn vào nút Tủ Sách
         findViewById(R.id.btn_truyen_hot).setOnClickListener(v -> {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new HotStoriesFragment())
+                    .replace(R.id.fragment_container, new LibraryFragment())
                     .addToBackStack(null)
                     .commit();
         });
@@ -131,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
         if (currentUser == null) {
             // CHƯA ĐĂNG NHẬP: Ẩn tất cả ngoại trừ Đăng nhập
             menu.findItem(R.id.nav_profile).setVisible(false);
-            menu.findItem(R.id.nav_library).setVisible(false);
-            menu.findItem(R.id.nav_settings).setVisible(false);
             menu.findItem(R.id.nav_manage_stories).setVisible(false);
             menu.findItem(R.id.nav_manage_accounts).setVisible(false);
         } else {
@@ -200,6 +210,48 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "new_chapter_channel";
+            CharSequence name = "Thông báo chương mới";
+            String description = "Nhận thông báo khi truyện theo dõi ra chap mới";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(channelId, name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(channel);
+            }
+        }
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                androidx.core.app.ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
+    }
+
+    private void registerFCMToken() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            FirebaseMessaging.getInstance().getToken()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                            String token = task.getResult();
+                            FirebaseFirestore.getInstance().collection("users").document(userId)
+                                    .update("fcmToken", token)
+                                    .addOnFailureListener(e -> Log.e("MainActivity", "Lỗi lưu FCM Token: " + e.getMessage()));
+                        }
+                    });
+        }
     }
 
 }

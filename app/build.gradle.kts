@@ -103,6 +103,10 @@ dependencies {
         "com.google.firebase:firebase-analytics"
     )
 
+    implementation(
+        "com.github.chrisbanes:PhotoView:2.3.0"
+    )
+
     // =========================
     // GOOGLE LOGIN
     // =========================

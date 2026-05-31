@@ -115,3 +115,39 @@ exports.processChapterPdf = functions
       fs.emptyDirSync(tempImageDir);
     }
   });
+
+// Function tự động thông báo khi có chương mới được tạo
+exports.sendNewChapterNotification = functions
+  .firestore.document("stories/{storyId}/chapters/{chapterId}")
+  .onCreate(async (snapshot, context) => {
+    const storyId = context.params.storyId;
+    const chapterData = snapshot.data();
+    const chapterTitle = chapterData.title || `Chương mới`;
+
+    try {
+      // 1. Lấy tên truyện từ document cha
+      const storyDoc = await db.collection("stories").doc(storyId).get();
+      if (!storyDoc.exists) {
+        console.log(`Không tìm thấy truyện: ${storyId}`);
+        return null;
+      }
+      const storyTitle = storyDoc.data().title || "Truyện";
+
+      // 2. Tạo payload thông báo gửi đến topic "story_{storyId}"
+      const payload = {
+        notification: {
+          title: `Chương mới: ${storyTitle}`,
+          body: `Đọc ngay ${chapterTitle} vừa được đăng tải!`,
+        },
+        topic: `story_${storyId}`
+      };
+
+      // 3. Tiến hành gửi thông báo đẩy
+      console.log(`Đang gửi thông báo chương mới cho topic story_${storyId}...`);
+      await admin.messaging().send(payload);
+      console.log(`Gửi thông báo chương mới cho truyện "${storyTitle}" thành công.`);
+    } catch (error) {
+      console.error("Lỗi khi gửi thông báo chương mới:", error);
+    }
+    return null;
+  });
