@@ -23,6 +23,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +105,7 @@ public class StoryDetailActivity extends AppCompatActivity {
                 if (chapterAdapter != null) chapterAdapter.isOffline = true;
 
                 loadOfflineChapters(); // Hàm tự viết ở dưới
+                checkReadingHistory(); // Kiểm tra tiến trình đọc offline
             } else {
                 // CHẾ ĐỘ ONLINE: Chạy bình thường như cũ
                 loadStoryDetails();
@@ -111,8 +113,8 @@ public class StoryDetailActivity extends AppCompatActivity {
                 if (currentUser != null) {
                     currentUserId = currentUser.getUid();
                     checkIfFollowing();
-                    checkReadingHistory();
                 }
+                checkReadingHistory();
             }
         }
         if (btnBookmark != null) {
@@ -183,7 +185,7 @@ public class StoryDetailActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (currentUserId != null && storyId != null) {
+        if (storyId != null) {
             checkReadingHistory();
         }
     }
@@ -272,14 +274,24 @@ public class StoryDetailActivity extends AppCompatActivity {
 
         if (isFollowing) {
             storyRef.update("followers", FieldValue.arrayUnion(currentUserId))
-                    .addOnSuccessListener(aVoid -> Toast.makeText(this, "Đã theo dõi truyện", Toast.LENGTH_SHORT).show())
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "Đã theo dõi truyện", Toast.LENGTH_SHORT).show();
+                        // Đăng ký nhận thông báo đẩy FCM Topic khi ra chap mới
+                        FirebaseMessaging.getInstance().subscribeToTopic("story_" + storyId)
+                                .addOnFailureListener(e -> android.util.Log.e("StoryDetail", "Lỗi subscribe topic: " + e.getMessage()));
+                    })
                     .addOnFailureListener(e -> {
                         isFollowing = false; // Rollback
                         updateBookmarkUI();
                     });
         } else {
             storyRef.update("followers", FieldValue.arrayRemove(currentUserId))
-                    .addOnSuccessListener(aVoid -> Toast.makeText(this, "Đã bỏ theo dõi", Toast.LENGTH_SHORT).show())
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "Đã bỏ theo dõi", Toast.LENGTH_SHORT).show();
+                        // Hủy đăng ký nhận thông báo đẩy FCM Topic
+                        FirebaseMessaging.getInstance().unsubscribeFromTopic("story_" + storyId)
+                                .addOnFailureListener(e -> android.util.Log.e("StoryDetail", "Lỗi unsubscribe topic: " + e.getMessage()));
+                    })
                     .addOnFailureListener(e -> {
                         isFollowing = true; // Rollback
                         updateBookmarkUI();
@@ -298,17 +310,38 @@ public class StoryDetailActivity extends AppCompatActivity {
         }
     }
     private void checkReadingHistory() {
-        if (currentUserId == null || storyId == null) return;
+        if (storyId == null) return;
 
-        db.collection("users").document(currentUserId)
-                .collection("history").document(storyId)
-                .get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        // Nếu có lịch sử, lấy ID chương ra
-                        lastReadChapterId = documentSnapshot.getString("lastReadChapterId");
-                    }
-                });
+        // 1. Luôn ưu tiên đọc từ SharedPreferences cục bộ trước (nhanh và hoạt động được offline)
+        String localLastRead = getSharedPreferences("ReadingHistory", MODE_PRIVATE)
+                .getString(storyId, null);
+        if (localLastRead != null) {
+            lastReadChapterId = localLastRead;
+            btnReadContinue.setEnabled(true);
+        }
+
+        // 2. Nếu online, truy xuất thêm từ Firestore để đồng bộ lịch sử đám mây
+        boolean isOffline = getIntent().getBooleanExtra("IS_OFFLINE", false);
+        if (!isOffline && currentUserId != null) {
+            db.collection("users").document(currentUserId)
+                    .collection("history").document(storyId)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            String fbLastRead = documentSnapshot.getString("lastReadChapterId");
+                            if (fbLastRead != null) {
+                                lastReadChapterId = fbLastRead;
+                                btnReadContinue.setEnabled(true);
+
+                                // Cập nhật ngược lại vào SharedPreferences cục bộ
+                                getSharedPreferences("ReadingHistory", MODE_PRIVATE)
+                                        .edit()
+                                        .putString(storyId, fbLastRead)
+                                        .apply();
+                            }
+                        }
+                    });
+        }
     }
     private void loadOfflineChapters() {
         DatabaseHelper dbHelper = new DatabaseHelper(this);

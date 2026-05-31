@@ -7,12 +7,6 @@
         android:id="@+id/nav_profile"
         android:title="Hồ sơ" />
     <item
-        android:id="@+id/nav_library"
-        android:title="Tủ truyện của tôi" />
-    <item
-        android:id="@+id/nav_settings"
-        android:title="Cài đặt" />
-    <item
         android:id="@+id/nav_manage_stories"
         android:title="Quản lý truyện" />
     <item

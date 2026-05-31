@@ -138,7 +138,10 @@ public class AddStoryActivity extends AppCompatActivity {
         storyData.put("coverImage", coverUrl);
         storyData.put("status", status);
         storyData.put("viewsCount", 0);
+        storyData.put("viewCount", 0);
         storyData.put("dailyViews", 0);
+        storyData.put("viewsWeek", 0);
+        storyData.put("viewsMonth", 0);
         storyData.put("chaptersCount", 0);
         storyData.put("lastestChapterTitle", "Chưa có chương");
         storyData.put("category", categories);

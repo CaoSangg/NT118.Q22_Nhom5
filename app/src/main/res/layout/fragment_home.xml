@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F9FA">
@@ -12,54 +13,57 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <!-- KHU VỰC TRUYỆN HOT -->
+        <LinearLayout
+            android:id="@+id/layoutHotStoriesSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <!-- TIÊU ĐỀ: TRUYỆN HOT (ĐƯA LÊN TRÊN) -->
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical">
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="18dp"
-                    android:background="#E91E63" />
-                <TextView
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Mới Cập Nhật"
-                    android:textColor="#333333"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:gravity="center_vertical">
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="18dp"
+                        android:background="#E91E63" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Truyện Hot Tiêu Biểu"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- DANH SÁCH TRUYỆN HOT (HIỂN THỊ TIÊU BIỂU - KHÔNG PHÂN TRANG) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListStories"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="Xem thêm >"
-                android:textColor="#E91E63"
-                android:textSize="12sp" />
-        </RelativeLayout>
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="3"
+                tools:listitem="@layout/item_story"/>
+        </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNewStories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="3"
-            tools:listitem="@layout/item_story"/>
-
+        <!-- TIÊU ĐỀ: MỚI CẬP NHẬT (ĐƯA XUỐNG DƯỚI) -->
         <RelativeLayout
+            android:id="@+id/layoutNewStoriesTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="12dp"
@@ -79,24 +83,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Truyện Hot"
+                    android:text="Mới Cập Nhật"
                     android:textColor="#333333"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="Xem thêm >"
-                android:textColor="#E91E63"
-                android:textSize="12sp" />
         </RelativeLayout>
 
+        <!-- DANH SÁCH TRUYỆN MỚI CẬP NHẬT (PHÂN TRANG) -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvListStories"
+            android:id="@+id/rvNewStories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -105,6 +101,53 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"
             tools:listitem="@layout/item_story"/>
+
+        <!-- THANH PHÂN TRANG CHO TRUYỆN MỚI -->
+        <LinearLayout
+            android:id="@+id/layoutPagination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/btnPrevPage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="&lt;"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#E91E63"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layoutPageNumbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center" />
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/btnNextPage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="&gt;"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#E91E63"
+                style="?android:attr/buttonBarButtonStyle" />
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"

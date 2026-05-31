@@ -18,9 +18,11 @@
 
         <com.google.android.material.tabs.TabItem
             android:text="Theo dõi"
-            android:icon="@android:drawable/btn_star_big_on" /> <com.google.android.material.tabs.TabItem
-        android:text="Vừa đọc"
-        android:icon="@android:drawable/ic_menu_recent_history" />
+            android:icon="@android:drawable/btn_star_big_on" /> 
+        
+        <com.google.android.material.tabs.TabItem
+            android:text="Vừa đọc"
+            android:icon="@android:drawable/ic_menu_recent_history" />
 
         <com.google.android.material.tabs.TabItem
             android:text="Đã tải"

@@ -140,12 +140,21 @@ public class ReaderActivity extends AppCompatActivity {
     private void updateUIAndLoadChapter() {
         tvReaderChapterTitle.setText(chapterTitleList.get(currentChapterIndex));
 
+        // Luôn lưu lịch sử đọc cục bộ vào SharedPreferences (chạy cả online và offline)
+        if (storyId != null && chapterId != null) {
+            getSharedPreferences("ReadingHistory", MODE_PRIVATE)
+                    .edit()
+                    .putString(storyId, chapterId)
+                    .apply();
+        }
+
         // Nếu offline thì lôi ảnh trong máy ra, ngược lại thì gọi Firebase
         if (getIntent().getBooleanExtra("IS_OFFLINE", false)) {
             loadOfflineChapterPages();
         } else {
             loadChapterPages();
             saveReadingProgress(chapterId); // Chỉ lưu lịch sử Firebase khi có mạng
+            incrementStoryViews(); // Tự động tăng view khi đọc online
         }
     }
 
@@ -218,6 +227,21 @@ public class ReaderActivity extends AppCompatActivity {
                 .collection("history").document(storyId)
                 .set(historyData)
                 .addOnFailureListener(e -> {});
+    }
+
+    private void incrementStoryViews() {
+        if (storyId == null) return;
+
+        db.collection("stories").document(storyId)
+                .update(
+                        "viewsCount", FieldValue.increment(1),
+                        "dailyViews", FieldValue.increment(1),
+                        "viewsWeek", FieldValue.increment(1),
+                        "viewsMonth", FieldValue.increment(1)
+                )
+                .addOnFailureListener(e -> {
+                    android.util.Log.e("ReaderActivity", "Lỗi tăng lượt xem: " + e.getMessage());
+                });
     }
 
     // ====================================================================

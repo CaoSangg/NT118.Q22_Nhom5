@@ -16,6 +16,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import android.app.ProgressDialog;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -125,37 +128,50 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void saveProfile() {
+        String username = etUsername.getText().toString().trim();
+        if (username.isEmpty()) {
+            Toast.makeText(this, "Tên người dùng không được để trống!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        String username =
-                etUsername.getText()
-                        .toString()
-                        .trim();
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Đang lưu thông tin...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
 
-        Map<String, Object> map =
-                new HashMap<>();
-
+        Map<String, Object> map = new HashMap<>();
         map.put("username", username);
 
         if (imageUri != null) {
+            progressDialog.setMessage("Đang tải ảnh đại diện lên...");
+            StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("avatars/" + userId + ".jpg");
 
-            map.put(
-                    "avatarUrl",
-                    imageUri.toString()
-            );
+            storageRef.putFile(imageUri)
+                    .addOnSuccessListener(taskSnapshot -> storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        map.put("avatarUrl", uri.toString());
+                        updateFirestoreProfile(map, progressDialog);
+                    }))
+                    .addOnFailureListener(e -> {
+                        progressDialog.dismiss();
+                        Toast.makeText(this, "Lỗi tải ảnh đại diện: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            updateFirestoreProfile(map, progressDialog);
         }
+    }
 
+    private void updateFirestoreProfile(Map<String, Object> map, ProgressDialog progressDialog) {
         db.collection("users")
                 .document(userId)
                 .update(map)
                 .addOnSuccessListener(unused -> {
-
-                    Toast.makeText(
-                            this,
-                            "Cập nhật thành công",
-                            Toast.LENGTH_SHORT
-                    ).show();
-
+                    progressDialog.dismiss();
+                    Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                     finish();
+                })
+                .addOnFailureListener(e -> {
+                    progressDialog.dismiss();
+                    Toast.makeText(this, "Lỗi cập nhật Firestore: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 }
