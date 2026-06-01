@@ -23,7 +23,8 @@ public class DownloadHelper {
     // Thêm biến orderIndex vào đây
     public static void downloadChapter(Context context, String storyId, String storyTitle, String coverUrl, String chapterId, String chapterTitle, long orderIndex) {
         DatabaseHelper db = new DatabaseHelper(context);
-        if (db.isChapterDownloaded(chapterId)) {
+        String localChapterId = storyId + "_" + chapterId; // Ghép id truyện để tránh trùng lặp khoá chính trong SQLite
+        if (db.isChapterDownloaded(localChapterId)) {
             Toast.makeText(context, chapterTitle + " đã được tải từ trước!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -92,7 +93,8 @@ public class DownloadHelper {
                     db.insertOfflineStory(storyId, storyTitle, coverUrl);
 
                     // Nhét thêm orderIndex vào Database
-                    db.insertOfflineChapter(chapterId, storyId, chapterTitle, pathsString, orderIndex);
+                    String localChapterId = storyId + "_" + chapterId;
+                    db.insertOfflineChapter(localChapterId, storyId, chapterTitle, pathsString, orderIndex);
 
                     Toast.makeText(context, "Tải " + chapterTitle + " thành công!", Toast.LENGTH_SHORT).show();
                 } else {

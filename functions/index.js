@@ -151,3 +151,66 @@ exports.sendNewChapterNotification = functions
     }
     return null;
   });
+
+// Hàm helper để reset trường lượt xem của tất cả truyện về 0 (theo lô 500 tài liệu)
+async function resetStoryField(fieldName) {
+  try {
+    const storiesSnapshot = await db.collection("stories").get();
+    if (storiesSnapshot.empty) {
+      console.log("Không có truyện nào để reset.");
+      return null;
+    }
+
+    let batch = db.batch();
+    let count = 0;
+    const promises = [];
+
+    for (const doc of storiesSnapshot.docs) {
+      batch.update(doc.ref, { [fieldName]: 0 });
+      count++;
+
+      if (count === 500) {
+        promises.push(batch.commit());
+        batch = db.batch();
+        count = 0;
+      }
+    }
+
+    if (count > 0) {
+      promises.push(batch.commit());
+    }
+
+    await Promise.all(promises);
+    console.log(`Đã reset thành công trường "${fieldName}" cho tất cả truyện.`);
+  } catch (error) {
+    console.error(`Lỗi khi reset trường "${fieldName}":`, error);
+  }
+  return null;
+}
+
+// 1. Tự động reset lượt xem ngày (dailyViews) vào 00:00 hàng ngày (GMT+7)
+exports.resetDailyViews = functions.pubsub
+  .schedule("0 0 * * *")
+  .timeZone("Asia/Ho_Chi_Minh")
+  .onRun(async (context) => {
+    console.log("Bắt đầu chạy Cron Job: Reset dailyViews...");
+    await resetStoryField("dailyViews");
+  });
+
+// 2. Tự động reset lượt xem tuần (viewsWeek) vào 00:00 Thứ Hai hàng tuần (GMT+7)
+exports.resetWeeklyViews = functions.pubsub
+  .schedule("0 0 * * 1")
+  .timeZone("Asia/Ho_Chi_Minh")
+  .onRun(async (context) => {
+    console.log("Bắt đầu chạy Cron Job: Reset viewsWeek...");
+    await resetStoryField("viewsWeek");
+  });
+
+// 3. Tự động reset lượt xem tháng (viewsMonth) vào 00:00 Ngày 1 hàng tháng (GMT+7)
+exports.resetMonthlyViews = functions.pubsub
+  .schedule("0 0 1 * *")
+  .timeZone("Asia/Ho_Chi_Minh")
+  .onRun(async (context) => {
+    console.log("Bắt đầu chạy Cron Job: Reset viewsMonth...");
+    await resetStoryField("viewsMonth");
+  });
