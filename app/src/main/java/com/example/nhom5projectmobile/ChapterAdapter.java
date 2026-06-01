@@ -25,7 +25,14 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
         this.context = context;
         this.chapterList = chapterList;
         this.storyId = storyId;
+    }
 
+    public void setStoryTitle(String storyTitle) {
+        this.storyTitle = storyTitle;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
     }
 
     @NonNull
@@ -39,6 +46,21 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     public void onBindViewHolder(@NonNull ChapterViewHolder holder, int position) {
         Chapter chapter = chapterList.get(position);
         holder.tvChapterTitle.setText(chapter.getTitle());
+
+        // Kiểm tra xem chương này đã đọc chưa để đổi màu văn bản sang màu xanh dương nhạt
+        String userId = "guest";
+        com.google.firebase.auth.FirebaseUser currentUser = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            userId = currentUser.getUid();
+        }
+        android.content.SharedPreferences sp = context.getSharedPreferences("ReadChapters", Context.MODE_PRIVATE);
+        boolean isRead = sp.getBoolean(userId + "_" + storyId + "_" + chapter.getChapterId(), false);
+
+        if (isRead) {
+            holder.tvChapterTitle.setTextColor(android.graphics.Color.parseColor("#2196F3")); // Màu xanh dương (Đã đọc)
+        } else {
+            holder.tvChapterTitle.setTextColor(android.graphics.Color.parseColor("#000000")); // Màu đen (Chưa đọc)
+        }
 
         // BẮT SỰ KIỆN CLICK: Mở màn hình đọc truyện mới (ReaderActivity)
         holder.itemView.setOnClickListener(v -> {

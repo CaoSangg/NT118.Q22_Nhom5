@@ -41,6 +41,7 @@ public class ReaderActivity extends AppCompatActivity {
     private ArrayAdapter<String> spinnerAdapter;
     private int currentChapterIndex = -1;
     private boolean isUserSelecting = false;
+    private boolean isOffline = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,10 @@ public class ReaderActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         storyId = getIntent().getStringExtra("STORY_ID");
         chapterId = getIntent().getStringExtra("CHAPTER_ID");
+        isOffline = getIntent().getBooleanExtra("IS_OFFLINE", false);
+        if (isOffline && storyId != null && chapterId != null && !chapterId.startsWith(storyId + "_")) {
+            chapterId = storyId + "_" + chapterId;
+        }
 
         pageList = new ArrayList<>();
         adapter = new ReaderAdapter(this, pageList);
@@ -120,7 +125,6 @@ public class ReaderActivity extends AppCompatActivity {
         });
 
         // 5. Kiểm tra xem đang đọc Online hay Offline
-        boolean isOffline = getIntent().getBooleanExtra("IS_OFFLINE", false);
         if (isOffline) {
             loadOfflineData(); // Gọi hàm đọc từ SQLite
         } else {
@@ -145,6 +149,17 @@ public class ReaderActivity extends AppCompatActivity {
             getSharedPreferences("ReadingHistory", MODE_PRIVATE)
                     .edit()
                     .putString(storyId, chapterId)
+                    .apply();
+
+            // Đánh dấu chương đã đọc cục bộ (kèm mã tài khoản để phân biệt)
+            String userId = "guest";
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (currentUser != null) {
+                userId = currentUser.getUid();
+            }
+            getSharedPreferences("ReadChapters", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean(userId + "_" + storyId + "_" + chapterId, true)
                     .apply();
         }
 
@@ -221,11 +236,12 @@ public class ReaderActivity extends AppCompatActivity {
         Map<String, Object> historyData = new HashMap<>();
         historyData.put("lastReadChapterId", currentChapterId);
         historyData.put("timestamp", FieldValue.serverTimestamp());
+        historyData.put("readChapters", FieldValue.arrayUnion(currentChapterId)); // Thêm vào danh sách đã đọc trên đám mây
 
         FirebaseFirestore.getInstance()
                 .collection("users").document(userId)
                 .collection("history").document(storyId)
-                .set(historyData)
+                .set(historyData, com.google.firebase.firestore.SetOptions.merge()) // Dùng merge để bảo toàn các field khác
                 .addOnFailureListener(e -> {});
     }
 

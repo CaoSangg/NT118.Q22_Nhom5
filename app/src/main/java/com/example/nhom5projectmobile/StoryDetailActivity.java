@@ -216,6 +216,11 @@ public class StoryDetailActivity extends AppCompatActivity {
                         storyTitleStr = title; // Lúc này máy đã hiểu title là gì
                         storyCoverUrl = imageUrl;
 
+                        if (chapterAdapter != null) {
+                            chapterAdapter.setStoryTitle(storyTitleStr);
+                            chapterAdapter.setCoverUrl(storyCoverUrl);
+                        }
+
                         loadChapters();
                     }
                 })
@@ -338,6 +343,21 @@ public class StoryDetailActivity extends AppCompatActivity {
                                         .edit()
                                         .putString(storyId, fbLastRead)
                                         .apply();
+                            }
+
+                            // Tải và đồng bộ danh sách chương đã đọc từ Firestore xuống SharedPreferences
+                            List<String> fbReadChapters = (List<String>) documentSnapshot.get("readChapters");
+                            if (fbReadChapters != null) {
+                                android.content.SharedPreferences.Editor editor = getSharedPreferences("ReadChapters", MODE_PRIVATE).edit();
+                                for (String chId : fbReadChapters) {
+                                    editor.putBoolean(currentUserId + "_" + storyId + "_" + chId, true);
+                                }
+                                editor.apply();
+
+                                // Làm mới danh sách chương để cập nhật màu sắc
+                                if (chapterAdapter != null) {
+                                    chapterAdapter.notifyDataSetChanged();
+                                }
                             }
                         }
                     });
