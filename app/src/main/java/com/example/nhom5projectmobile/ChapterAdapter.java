@@ -14,13 +14,19 @@ import java.util.List;
 public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterViewHolder> {
     private Context context;
     private List<Chapter> chapterList;
-    private String storyId; // Biến mới để nhận mã truyện
+    private String storyId;
     private String storyTitle = "Truyện Offline";
     private String coverUrl = "";
     public boolean isOffline = false;
+    private String lastReadChapterId = null;
+    private java.util.Set<String> readChapters = new java.util.HashSet<>();
 
+    public void setReadHistory(String lastReadId, java.util.Set<String> readList) {
+        this.lastReadChapterId = lastReadId;
+        this.readChapters = readList;
+        notifyDataSetChanged();
+    }
 
-    // CẬP NHẬT CONSTRUCTOR: Thêm String storyId
     public ChapterAdapter(Context context, List<Chapter> chapterList, String storyId) {
         this.context = context;
         this.chapterList = chapterList;
@@ -47,43 +53,27 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
         Chapter chapter = chapterList.get(position);
         holder.tvChapterTitle.setText(chapter.getTitle());
 
-        // Kiểm tra xem chương này đã đọc chưa để đổi màu văn bản sang màu xanh dương nhạt
-        String userId = "guest";
-        com.google.firebase.auth.FirebaseUser currentUser = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            userId = currentUser.getUid();
-        }
-        android.content.SharedPreferences sp = context.getSharedPreferences("ReadChapters", Context.MODE_PRIVATE);
-        boolean isRead = sp.getBoolean(userId + "_" + storyId + "_" + chapter.getChapterId(), false);
-
-        if (isRead) {
-            holder.tvChapterTitle.setTextColor(android.graphics.Color.parseColor("#2196F3")); // Màu xanh dương (Đã đọc)
+        // 1. Kiểm tra xem chương này đã đọc chưa để đổi sang màu xanh dương (#2196F3)
+        if (readChapters.contains(chapter.getChapterId())) {
+            holder.tvChapterTitle.setTextColor(android.graphics.Color.parseColor("#2196F3"));
         } else {
-            holder.tvChapterTitle.setTextColor(android.graphics.Color.parseColor("#000000")); // Màu đen (Chưa đọc)
+            holder.tvChapterTitle.setTextColor(android.graphics.Color.parseColor("#333333"));
         }
 
-        // BẮT SỰ KIỆN CLICK: Mở màn hình đọc truyện mới (ReaderActivity)
+        // 2. Nếu chương này là chương vừa mở gần nhất -> Hiện icon Bookmark kế bên
+        if (chapter.getChapterId().equals(lastReadChapterId)) {
+            holder.imgChapterBookmark.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgChapterBookmark.setVisibility(View.GONE);
+        }
+
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, ReaderActivity.class); // Trỏ sang Activity hiển thị ảnh
+            Intent intent = new Intent(context, ReaderActivity.class);
             intent.putExtra("STORY_ID", storyId);
             intent.putExtra("CHAPTER_ID", chapter.getChapterId());
             if (isOffline) intent.putExtra("IS_OFFLINE", true);
             context.startActivity(intent);
         });
-        if (holder.btnDownload != null) {
-            holder.btnDownload.setOnClickListener(v -> {
-                // Gọi anh công nhân tải ngầm ra làm việc
-                DownloadHelper.downloadChapter(
-                        context,
-                        storyId,
-                        storyTitle,
-                        coverUrl,
-                        chapter.getChapterId(),
-                        chapter.getTitle(),
-                        position
-                );
-            });
-        }
     }
 
     @Override
@@ -91,11 +81,12 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
 
     static class ChapterViewHolder extends RecyclerView.ViewHolder {
         TextView tvChapterTitle;
-        ImageView btnDownload;
+        ImageView imgChapterBookmark;
+
         public ChapterViewHolder(@NonNull View itemView) {
             super(itemView);
             tvChapterTitle = itemView.findViewById(R.id.tvChapterTitle);
-            btnDownload = itemView.findViewById(R.id.btnDownload);
+            imgChapterBookmark = itemView.findViewById(R.id.imgChapterBookmark);
         }
     }
 }

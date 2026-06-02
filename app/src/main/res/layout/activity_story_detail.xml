@@ -1,161 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Dùng RelativeLayout làm gốc để có thể ghim khung chat xuống đáy màn hình -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <!-- 1. KHUNG NHẬP BÌNH LUẬN (Ghim cứng dưới đáy, mặc định ẨN) -->
     <LinearLayout
+        android:id="@+id/layoutCommentInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E3F2FD"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/edtComment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:hint="Nhập bình luận ..."
+            android:padding="10dp"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/btnSendComment"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_send"
+            app:tint="#FF9800" />
+    </LinearLayout>
+
+    <!-- 2. KHUNG CHỨA NỘI DUNG CHÍNH (Nằm phía trên khung bình luận) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutCommentInput"
         android:orientation="vertical">
 
+        <!-- Nút Back ở trên cùng -->
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_revert"
-            android:contentDescription="Quay lại" />
+            android:contentDescription="Quay lại"
+            android:src="@android:drawable/ic_menu_revert" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp">
-
-            <ImageView
-                android:id="@+id/imgDetailCover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#80000000" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:id="@+id/tvDetailTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tên Truyện"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvDetailAuthor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tác giả: ..."
-                    android:textColor="#E0E0E0"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <LinearLayout
+        <!-- THANH MENU 2 TAB (Nằm ngay dưới nút Back, luôn hiển thị) -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutStory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            app:tabIndicatorColor="#FF9800"
+            app:tabSelectedTextColor="#FF9800"
+            app:tabTextColor="#666666" />
 
-            <LinearLayout
+        <!-- NỘI DUNG CUỘN ĐƯỢC (Nằm dưới thanh Tab) -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="16dp">
+                android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:id="@+id/btnBookmark"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_bookmark"
-                    android:contentDescription="Theo dõi"
-                    app:tint="#666666" />
-
-                <Space
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content" />
-
-                <ImageButton
-                    android:id="@+id/btnDownload"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_download"
-                    android:contentDescription="Tải xuống"
-                    app:tint="#666666" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <Button
-                    android:id="@+id/btnReadNow"
-                    android:layout_width="0dp"
+                <!-- TAB 1: GIỚI THIỆU (Giữ nguyên 100% code giao diện gốc của bạn) -->
+                <LinearLayout
+                    android:id="@+id/layoutTabGioiThieu"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    android:backgroundTint="#E91E63"
-                    android:text="ĐỌC TỪ ĐẦU"
-                    android:textColor="#FFFFFF" />
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnReadContinue"
-                    android:layout_width="0dp"
+                    <!-- Ảnh bìa và Tiêu đề -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp">
+
+                        <ImageView
+                            android:id="@+id/imgDetailCover"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_launcher_background" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#80000000" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                            <TextView
+                                android:id="@+id/tvDetailTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tên Truyện"
+                                android:textColor="#FFFFFF"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvDetailAuthor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tác giả: ..."
+                                android:textColor="#E0E0E0"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!-- Khung chứa các Nút bấm và Nội dung -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/btnBookmark"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:contentDescription="Theo dõi"
+                                android:src="@drawable/ic_bookmark"
+                                app:tint="#666666" />
+
+                            <Space
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content" />
+
+                            <ImageButton
+                                android:id="@+id/btnDownload"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:contentDescription="Tải xuống"
+                                android:src="@drawable/ic_download"
+                                app:tint="#666666" />
+                        </LinearLayout>
+
+                        <!-- Giữ nguyên 2 nút Đọc của bạn -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <Button
+                                android:id="@+id/btnReadNow"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="#E91E63"
+                                android:text="ĐỌC TỪ ĐẦU"
+                                android:textColor="#FFFFFF" />
+
+                            <Button
+                                android:id="@+id/btnReadContinue"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="#4CAF50"
+                                android:text="ĐỌC TIẾP"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Nội dung"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDetailDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Mô tả chi tiết truyện"
+                            android:textColor="#666666"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Danh sách chương"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvChapters"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:nestedScrollingEnabled="false" />
+                    </LinearLayout>
+                </LinearLayout> <!-- HẾT TAB 1 -->
+
+                <!-- TAB 2: BÌNH LUẬN (Mặc định ẩn) -->
+                <LinearLayout
+                    android:id="@+id/layoutTabBinhLuan"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:backgroundTint="#4CAF50"
-                    android:text="ĐỌC TIẾP"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:visibility="gone">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Nội dung"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvComments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+                </LinearLayout> <!-- HẾT TAB 2 -->
 
-            <TextView
-                android:id="@+id/tvDetailDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Mô tả chi tiết truyện"
-                android:textColor="#666666"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Danh sách chương"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvChapters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:nestedScrollingEnabled="false" />
-
-        </LinearLayout>
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</RelativeLayout>
